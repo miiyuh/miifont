@@ -93,20 +93,22 @@ To change a letter, redraw it on the template, replace the scan in `scans/` and 
 
 Printable templates for adding Jawi, in two guide styles:
 
-- **Naskh:** [`templates/jawi/naskh/miifont-jawi-naskh.pdf`](templates/jawi/naskh/miifont-jawi-naskh.pdf)
-- **Thuluth:** [`templates/jawi/thuluth/miifont-jawi-thuluth.pdf`](templates/jawi/thuluth/miifont-jawi-thuluth.pdf)
+- **Naskh:** [`templates/jawi/naskh/miifont-jawi-naskh.pdf`](templates/jawi/naskh/miifont-jawi-naskh.pdf), alif 5 dots (10 mm), 3 pages
+- **Thuluth:** [`templates/jawi/thuluth/miifont-jawi-thuluth.pdf`](templates/jawi/thuluth/miifont-jawi-thuluth.pdf), alif 9 dots (18 mm), 7 pages
 
-Each has an instructions page plus 5 pages with 151 cells:
+Both are sized for a **2.0 mm calligraphy nib**. Letter heights follow the traditional dot (nuqta) proportions, with one dot about one nib width tall, and every cell has a faint ladder of pen dots showing the alif height. Cell sizes come from the measured guide letters. Everything sits inside the **Canon PIXMA E470**'s recommended A4 print area (3.4 mm sides, 3.0 mm top, 16.7 mm bottom), so print at 100% / actual size. Change `NIB`, `MARGIN` or a style's `dots` in `scripts/jawi_template.py` to regenerate for another pen or printer.
+
+Each has an instructions page plus 151 cells:
 
 - all 28 Arabic letters, the Jawi letters چ ڠ ڤ ݢ ڽ ۏ, ة, the hamzah forms (أ إ ؤ ئ ء) and لا
 - every letter in each contextual shape it takes: tunggal, awal, tengah, akhir
 - tatwil and Arabic punctuation (، ؛ ؟), plus optional Arabic digits
 
-Every cell has a faint guide letter to trace or follow. It's printed light enough to be dropped automatically when the scan is processed, so only your own ink ends up in the font. Sides that join a neighbouring letter have a tick on the baseline, and the joining stroke runs right up to it so the letters connect cleanly once typed. Shapes with long tails get double-width cells.
+Every cell has a faint guide letter to trace or follow. It's printed light enough to be dropped automatically when the scan is processed, so only your own ink ends up in the font. Sides that join a neighbouring letter have a tick on the baseline, and the joining stroke runs right up to it so the letters connect cleanly once typed. Shapes too wide for one cell get double-width cells.
 
 Layla Thuluth has no ڠ ݢ ڽ ۏ, so in the Thuluth template those cells show the base letter (ع ك ن و) with a note on which dots to add.
 
-Both styles share one layout. `scripts/jawi_template.py` generates the PDFs and `templates/jawi/layout.json`, which records where every cell is so the scans can be cut up. The guide fonts are in [`templates/jawi/fonts`](templates/jawi/fonts) (both OFL).
+`scripts/jawi_template.py` generates the PDFs and a `layout.json` for each style, which records where every cell is so the scans can be cut up. The guide fonts are in [`templates/jawi/fonts`](templates/jawi/fonts) (both OFL).
 
 ## known limitations
 
