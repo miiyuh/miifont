@@ -25,6 +25,25 @@ Regular, Italic, Bold and Bold Italic share the family name `miifont`, so Ctrl+B
 
 Covers A–Z, a–z, 0–9 and `! ? . , ; : ' " ( ) - & @ # $ % € £ ¥ * + × ÷ = / \ _ < > [ ] { } | ~ °`.
 
+## variable font
+
+[`fonts/variable`](fonts/variable) has `miifont[wght].ttf` and `miifont-Italic[wght].ttf` (plus `.woff2`), with a weight axis from 100 to 900. The named weights match the static fonts.
+
+```css
+@font-face {
+  font-family: "miifont";
+  src: url("miifont[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "miifont";
+  src: url("miifont-Italic[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+}
+```
+
 ## install
 
 - **desktop:** grab the files from [`fonts/otf`](fonts/otf) (or [`fonts/ttf`](fonts/ttf) for older apps) and install them.
@@ -52,7 +71,10 @@ The glyphs come from two handwritten template sheets in [`scans/`](scans).
 
 1. `scripts/extract.py` lines each scan up using the black corner squares, cuts out the 7×7 grid of boxes and finds the baseline in each box.
 2. `scripts/build_font.py` keeps only the black ink, traces each glyph down to its stroke centreline and re-strokes it with a round pen. Regular uses the pen width measured from the scans, and the other weights are multiples of it (0.45× for Thin up to 2.8× for Black). Italics are the upright outlines slanted 12°. Every style is written as OTF, TTF and WOFF2.
-3. `scripts/specimen.py` renders `specimen.png`.
+3. `scripts/build_variable.py` builds the variable fonts. Filled outlines traced separately for each weight can't be interpolated, so here each stroke centreline is drawn as a chain of round-ended segments. Thin and Black then have exactly the same points, and every weight in between is exact. The segments overlap on purpose and are flagged so renderers fill them correctly.
+4. `scripts/specimen.py` renders `specimen.png`.
+
+Shared glyph analysis lives in `scripts/common.py`.
 
 ## rebuild
 
@@ -61,13 +83,23 @@ python -m venv .venv
 .venv/bin/pip install -r requirements.txt   # Windows: .venv\Scripts\pip
 .venv/bin/python scripts/extract.py
 .venv/bin/python scripts/build_font.py
+.venv/bin/python scripts/build_variable.py
 .venv/bin/python scripts/specimen.py
 ```
 
 To change a letter, redraw it on the template, replace the scan in `scans/` and rebuild.
 
+## jawi (coming soon)
+
+[`templates/jawi/miifont-jawi-template.pdf`](templates/jawi/miifont-jawi-template.pdf) is a printable template for adding Jawi. It has an instructions page plus 5 pages with 151 cells:
+
+- all 28 Arabic letters, the Jawi letters چ ڠ ڤ ݢ ڽ ۏ, ة, the hamzah forms (أ إ ؤ ئ ء) and لا
+- every letter in each contextual shape it takes: tunggal, awal, tengah, akhir
+- tatwil and Arabic punctuation (، ؛ ؟), plus optional Arabic digits
+
+Sides that join a neighbouring letter have a tick on the baseline. The joining stroke runs right up to it, so the letters connect cleanly once typed. Shapes with long tails get double-width cells. `scripts/jawi_template.py` generates the PDF and `layout.json`, which records where every cell is so the scans can be cut up.
+
 ## known limitations
 
 - no kerning yet, so some pairs (like `AV` or `Ty`) may sit a little loose or tight.
 - italics are a mechanical slant, not redrawn.
-- static fonts only, no variable font.
