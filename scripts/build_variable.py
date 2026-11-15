@@ -213,9 +213,9 @@ def master(stroke, italic):
                              caretSlopeRise=1000 if italic else 1,
                              caretSlopeRun=round(1000 * slant) if italic else 0)
     style = "Italic" if italic else "Regular"
-    fb.setupNameTable({"familyName": FAMILY, "styleName": style,
-                       "uniqueFontIdentifier": f"{VERSION};{FAMILY}-{style}VF",
-                       "fullName": f"{FAMILY} {style}", "psName": f"{FAMILY}-{style}",
+    fb.setupNameTable({"familyName": VFAMILY, "styleName": style,
+                       "uniqueFontIdentifier": f"{VERSION};{VPS}-{style}",
+                       "fullName": f"{VFAMILY} {style}", "psName": f"{VPS}-{style}",
                        "version": f"Version {VERSION}"})
     fb.setupOS2(version=4, usWeightClass=400, fsSelection=(0x01 if italic else 0x40) | 0x80,
                 sTypoAscender=asc, sTypoDescender=desc, sTypoLineGap=100,
@@ -224,6 +224,12 @@ def master(stroke, italic):
     fb.setupPost(italicAngle=-ITALIC_ANGLE if italic else 0)
     fb.font["head"].macStyle = 0x02 if italic else 0
     return fb.font
+
+
+# Own family name, so the variable fonts don't clash with the static ones when
+# both are installed (identical names make Windows/Word show a fallback font).
+VFAMILY = f"{FAMILY} Variable"
+VPS = VFAMILY.replace(" ", "")
 
 
 def build(italic):
@@ -243,9 +249,9 @@ def build(italic):
     for cls, name, stroke in WEIGHTS:
         inst = InstanceDescriptor()
         style = name if not italic else ("Italic" if name == "Regular" else f"{name} Italic")
-        inst.familyName, inst.styleName = FAMILY, style
+        inst.familyName, inst.styleName = VFAMILY, style
         inst.location = {"Weight": stroke}
-        inst.postScriptFontName = f"{FAMILY}-{style.replace(' ', '')}"
+        inst.postScriptFontName = f"{VPS}-{style.replace(' ', '')}"
         ds.addInstance(inst)
     vf, _, _ = varLib.build(ds)
     finish_os2(vf)

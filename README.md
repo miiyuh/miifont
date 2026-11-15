@@ -27,7 +27,7 @@ Covers A–Z, a–z, 0–9 and `! ? . , ; : ' " ( ) - & @ # $ % € £ ¥ * + ×
 
 ## variable font
 
-[`fonts/variable`](fonts/variable) has `miifont[wght].ttf` and `miifont-Italic[wght].ttf` (plus `.woff2`), with a weight axis from 100 to 900. The named weights match the static fonts.
+[`fonts/variable`](fonts/variable) has `miifont[wght].ttf` and `miifont-Italic[wght].ttf` (plus `.woff2`), with a weight axis from 100 to 900. The named weights match the static fonts. On desktop they install as **miifont Variable**, so they can sit alongside the static fonts without clashing.
 
 ```css
 @font-face {
