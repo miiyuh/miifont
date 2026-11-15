@@ -1,0 +1,254 @@
+{
+ "note": "Scanned pages are numbered 1..pages. Positions in mm on A4; cell guides relative to the cell top. `words` lists, right to left, the cell ids that spell each word of the sentence.",
+ "style": "thuluth",
+ "nib_mm": 3.0,
+ "alif_dots": 9,
+ "sentence": "ساي سوك منوليس جاوي",
+ "rumi": "saya suka menulis jawi",
+ "words": [
+  [
+   1,
+   2,
+   3
+  ],
+  [
+   1,
+   4,
+   5
+  ],
+  [
+   6,
+   7,
+   4,
+   8,
+   9,
+   10
+  ],
+  [
+   11,
+   2,
+   12,
+   3
+  ]
+ ],
+ "page_mm": [
+  210,
+  297
+ ],
+ "safe_area_mm": {
+  "left": 5.0,
+  "right": 205.0,
+  "top": 4.6,
+  "bottom": 278.7
+ },
+ "square_mm": 8,
+ "square_centres_mm": [
+  [
+   9.0,
+   8.6
+  ],
+  [
+   201.0,
+   8.6
+  ],
+  [
+   9.0,
+   274.7
+  ],
+  [
+   201.0,
+   274.7
+  ]
+ ],
+ "cell_guides_mm": {
+  "label_band": 7.5,
+  "ascender": 14.28,
+  "middle": 29.28,
+  "baseline": 41.28,
+  "descender": 54.26,
+  "join_tick_inset": 3.2
+ },
+ "pages": 1,
+ "cells": [
+  {
+   "char": "س",
+   "name": "sin",
+   "form": "init",
+   "optional": false,
+   "id": 1,
+   "units": 1,
+   "page": 1,
+   "x": 173.333,
+   "y": 20.6,
+   "w": 31.667,
+   "h": 60.15,
+   "join_right": false,
+   "join_left": true
+  },
+  {
+   "char": "ا",
+   "name": "alif",
+   "form": "fina",
+   "optional": false,
+   "id": 2,
+   "units": 1,
+   "page": 1,
+   "x": 139.667,
+   "y": 20.6,
+   "w": 31.667,
+   "h": 60.15,
+   "join_right": true,
+   "join_left": false
+  },
+  {
+   "char": "ي",
+   "name": "ya",
+   "form": "isol",
+   "optional": false,
+   "id": 3,
+   "units": 1,
+   "page": 1,
+   "x": 106.0,
+   "y": 20.6,
+   "w": 31.667,
+   "h": 60.15,
+   "join_right": false,
+   "join_left": false
+  },
+  {
+   "char": "و",
+   "name": "wau",
+   "form": "fina",
+   "optional": false,
+   "id": 4,
+   "units": 2,
+   "page": 1,
+   "x": 38.667,
+   "y": 20.6,
+   "w": 65.333,
+   "h": 60.15,
+   "join_right": true,
+   "join_left": false
+  },
+  {
+   "char": "ك",
+   "name": "kaf",
+   "form": "isol",
+   "optional": false,
+   "id": 5,
+   "units": 1,
+   "page": 1,
+   "x": 5.0,
+   "y": 20.6,
+   "w": 31.667,
+   "h": 60.15,
+   "join_right": false,
+   "join_left": false
+  },
+  {
+   "char": "م",
+   "name": "mim",
+   "form": "init",
+   "optional": false,
+   "id": 6,
+   "units": 1,
+   "page": 1,
+   "x": 173.333,
+   "y": 83.25,
+   "w": 31.667,
+   "h": 60.15,
+   "join_right": false,
+   "join_left": true
+  },
+  {
+   "char": "ن",
+   "name": "nun",
+   "form": "medi",
+   "optional": false,
+   "id": 7,
+   "units": 1,
+   "page": 1,
+   "x": 139.667,
+   "y": 83.25,
+   "w": 31.667,
+   "h": 60.15,
+   "join_right": true,
+   "join_left": true
+  },
+  {
+   "char": "ل",
+   "name": "lam",
+   "form": "init",
+   "optional": false,
+   "id": 8,
+   "units": 1,
+   "page": 1,
+   "x": 106.0,
+   "y": 83.25,
+   "w": 31.667,
+   "h": 60.15,
+   "join_right": false,
+   "join_left": true
+  },
+  {
+   "char": "ي",
+   "name": "ya",
+   "form": "medi",
+   "optional": false,
+   "id": 9,
+   "units": 1,
+   "page": 1,
+   "x": 72.333,
+   "y": 83.25,
+   "w": 31.667,
+   "h": 60.15,
+   "join_right": true,
+   "join_left": true
+  },
+  {
+   "char": "س",
+   "name": "sin",
+   "form": "fina",
+   "optional": false,
+   "id": 10,
+   "units": 2,
+   "page": 1,
+   "x": 5.0,
+   "y": 83.25,
+   "w": 65.333,
+   "h": 60.15,
+   "join_right": true,
+   "join_left": false
+  },
+  {
+   "char": "ج",
+   "name": "jim",
+   "form": "init",
+   "optional": false,
+   "id": 11,
+   "units": 1,
+   "page": 1,
+   "x": 173.333,
+   "y": 145.9,
+   "w": 31.667,
+   "h": 60.15,
+   "join_right": false,
+   "join_left": true
+  },
+  {
+   "char": "و",
+   "name": "wau",
+   "form": "isol",
+   "optional": false,
+   "id": 12,
+   "units": 1,
+   "page": 1,
+   "x": 139.667,
+   "y": 145.9,
+   "w": 31.667,
+   "h": 60.15,
+   "join_right": false,
+   "join_left": false
+  }
+ ]
+}

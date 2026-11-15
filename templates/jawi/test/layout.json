@@ -1,5 +1,6 @@
 {
  "note": "Single page; positions in mm on A4, row guides relative to the row top.",
+ "version": 2,
  "style": "thuluth",
  "nib_mm": 3.0,
  "alif_dots": 9,
@@ -15,8 +16,12 @@
   "left": 3.4,
   "right": 3.4
  },
- "square_mm": 8,
- "square_centres_mm": [
+ "mark_shape": "plus",
+ "mark_size_mm": [
+  8.0,
+  8.0
+ ],
+ "mark_centres_mm": [
   [
    9.0,
    8.6
@@ -35,11 +40,11 @@
   ]
  ],
  "row_guides_mm": {
-  "label_band": 6.0,
-  "ascender": 13.87,
-  "middle": 28.87,
-  "baseline": 40.87,
-  "descender": 53.85
+  "label_band": 6.5,
+  "ascender": 14.23,
+  "middle": 29.23,
+  "baseline": 41.23,
+  "descender": 54.21
  },
  "rows": [
   {
@@ -48,9 +53,9 @@
    "text": "ساي سوك",
    "trace": true,
    "x": 5.0,
-   "y": 20.6,
+   "y": 19.6,
    "w": 200.0,
-   "h": 59.775
+   "h": 60.025
   },
   {
    "row": 2,
@@ -58,9 +63,9 @@
    "text": "ساي سوك",
    "trace": false,
    "x": 5.0,
-   "y": 83.375,
+   "y": 82.625,
    "w": 200.0,
-   "h": 59.775
+   "h": 60.025
   },
   {
    "row": 3,
@@ -68,9 +73,9 @@
    "text": "منوليس جاوي",
    "trace": true,
    "x": 5.0,
-   "y": 146.15,
+   "y": 145.65,
    "w": 200.0,
-   "h": 59.775
+   "h": 60.025
   },
   {
    "row": 4,
@@ -78,9 +83,9 @@
    "text": "منوليس جاوي",
    "trace": false,
    "x": 5.0,
-   "y": 208.925,
+   "y": 208.675,
    "w": 200.0,
-   "h": 59.775
+   "h": 60.025
   }
  ]
 }

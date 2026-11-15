@@ -1,14 +1,18 @@
 """Build the "miifont Jawi Test" font from the filled Thuluth letter test sheet.
 
-Reads scans/jawi-test-letters.jpg and templates/jawi/test/layout-letters.json:
-lines the scan up on its corner squares, cuts out each cell, keeps only the
+Usage: jawi_test_font.py [scan.jpg [layout.json [out_dir]]]. By default it reads
+scans/jawi-test-letters.jpg and the layout saved next to it
+(scans/jawi-test-letters.layout.json, from the sheet that scan was printed from).
+It lines the scan up on its corner marks, cuts out each cell, keeps only the
 black ink and traces it as a filled outline (keeping the broad-nib thick/thin
-contrast). Joined sides are cut at the join point so neighbouring letters
+contrast). Joined sides are cut where the template says the joining stroke
+stops (the wall; older sheets: the join tick), so neighbouring letters
 overlap slightly and connect. The font gets init/medi/fina/isol substitutions,
 so typing the sentence picks the right forms. Also renders a preview PNG.
 """
 import json
 import os
+import sys
 import subprocess
 import tempfile
 
@@ -21,9 +25,9 @@ from fontTools.pens.cu2quPen import Cu2QuPen
 from fontTools.pens.ttGlyphPen import TTGlyphPen
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SCAN = os.path.join(ROOT, "scans", "jawi-test-letters.jpg")
-LAYOUT = os.path.join(ROOT, "templates", "jawi", "test", "layout-letters.json")
-OUT = os.path.join(ROOT, "fonts", "jawi-test")
+SCAN = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else os.path.join(ROOT, "scans", "jawi-test-letters.jpg")
+LAYOUT = os.path.abspath(sys.argv[2]) if len(sys.argv) > 2 else os.path.splitext(SCAN)[0] + ".layout.json"
+OUT = os.path.abspath(sys.argv[3]) if len(sys.argv) > 3 else os.path.join(ROOT, "fonts", "jawi-test")
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 
 FAMILY = "miifont Jawi Test"
@@ -35,16 +39,20 @@ OVERLAP = 0.35          # joined letters overlap by 2 x this (mm)
 SIDE = 1.2              # mm side bearing on non-joining sides
 JOIN_BAND = 0.7         # look for the joining stroke within this many nib widths of the baseline
 KASHIDA = 1.0           # nib widths of plain joining stroke kept past the letter body
+WALL_TOLERANCE = 0.4    # mm of ink allowed past a wall (pen overshoot)
 
 
-def corner_squares(gray, size_px):
+def corner_marks(gray, size_px, shape):
+    """Centres of the 4 corner registration marks (TL, TR, BL, BR): bold plus
+    signs on current sheets, solid squares on the first test sheet."""
     _, bw = cv2.threshold(gray, 100, 255, cv2.THRESH_BINARY_INV)
     n, _, stats, cent = cv2.connectedComponentsWithStats(bw)
-    lo = (size_px * 0.75) ** 2
+    lo = (size_px * 0.75) ** 2 if shape == "square" else 0.3 * size_px ** 2   # min ink area
+    fill = {"plus": (0.38, 0.65), "square": (0.85, 1.01)}[shape]   # ink share of the bounding box
     pts = np.array([cent[i] for i in range(1, n)
                     if stats[i, cv2.CC_STAT_AREA] > lo
                     and 0.8 < stats[i, cv2.CC_STAT_WIDTH] / stats[i, cv2.CC_STAT_HEIGHT] < 1.25
-                    and stats[i, cv2.CC_STAT_AREA] > 0.85 * stats[i, cv2.CC_STAT_WIDTH] * stats[i, cv2.CC_STAT_HEIGHT]])
+                    and fill[0] < stats[i, cv2.CC_STAT_AREA] / (stats[i, cv2.CC_STAT_WIDTH] * stats[i, cv2.CC_STAT_HEIGHT]) < fill[1]])
     h, w = gray.shape
     return np.array([pts[np.argmin(((pts - t) ** 2).sum(1))] for t in [(0, 0), (w, 0), (0, h), (w, h)]],
                     np.float32)
@@ -54,15 +62,17 @@ def warp(lay):
     img = cv2.imread(SCAN)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     px_per_mm = img.shape[1] / lay["page_mm"][0]
-    src = corner_squares(gray, lay["square_mm"] * px_per_mm)
-    dst = np.array(lay["square_centres_mm"], np.float32) * PX
+    shape = lay.get("mark_shape", "square")
+    size = min(lay["mark_size_mm"]) if shape != "square" else lay["square_mm"]
+    src = corner_marks(gray, size * px_per_mm, shape)
+    dst = np.array(lay["mark_centres_mm" if shape != "square" else "square_centres_mm"], np.float32) * PX
     H = cv2.getPerspectiveTransform(src, dst)
     W, Hh = (np.array(lay["page_mm"]) * PX).astype(int)
     return cv2.warpPerspective(img, H, (W, Hh), flags=cv2.INTER_CUBIC, borderValue=(255, 255, 255))
 
 
 def ink(page):
-    """Black ink only: dark, and not blue (guides, labels and ghost letters are blue)."""
+    """Black ink only: dark, and not tinted (guides, labels and ghost letters are coral, or blue on older sheets)."""
     b, g, r = [page[..., i].astype(int) for i in range(3)]
     m = (r < 120) & (b - r < 45)
     m = cv2.morphologyEx(m.astype(np.uint8), cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
@@ -80,18 +90,24 @@ def glyph(cell, mask, guides, nib, k):
                int((x0 + 0.8) * PX):int((x0 + cell["w"] - 0.8) * PX)].copy()
     ox, oy = x0 + 0.8, y0 + top                                     # sub-image origin in page mm
     base = y0 + guides["baseline"]
-    tick = guides["join_tick_inset"]
     to_mm = lambda px, py: (ox + px / PX, oy + py / PX)
-    # Joined sides: cut at the tick, then use where the stroke actually ends.
+    # Joined sides: cut where the joining stroke must stop (the wall, or on the
+    # first test sheet the tick), then use where the stroke actually ends.
+    if "guide" in cell:
+        cut_r = x0 + cell["guide"].get("wall_right", cell["w"]) + WALL_TOLERANCE
+        cut_l = x0 + cell["guide"].get("wall_left", 0) - WALL_TOLERANCE
+    else:
+        cut_r = x0 + cell["w"] - guides["join_tick_inset"]
+        cut_l = x0 + guides["join_tick_inset"]
     band = slice(max(0, int((base - oy - JOIN_BAND * nib - nib) * PX)), int((base - oy + JOIN_BAND * nib) * PX))
     if cell["join_right"]:
-        sub[:, int((x0 + cell["w"] - tick - ox) * PX):] = False
+        sub[:, int((cut_r - ox) * PX):] = False
     if cell["join_left"]:
-        sub[:, :int((x0 + tick - ox) * PX)] = False
+        sub[:, :max(0, int((cut_l - ox) * PX))] = False
     if not sub.any():
         raise SystemExit(f"cell {cell['id']} ({cell['char']} {cell['form']}) is empty")
-    # The template asks for joining strokes right up to the ticks, which is longer
-    # than in running writing. Shorten a run of plain baseline stroke to KASHIDA nibs.
+    # Safety net for overlong joining strokes (the first sheet asked for strokes
+    # right up to the cell edge): shorten plain baseline stroke to KASHIDA nibs.
     outside = sub.copy(); outside[band] = False
     body = np.nonzero(outside.any(0))[0]          # columns with more than a join stroke
     keep = int(KASHIDA * nib * PX)
@@ -196,7 +212,8 @@ def preview(lay, page, font_path):
     """PNG: the sentence set in the font, next to the freehand word written under the grid."""
     cells = lay["cells"]
     y = max(c["y"] + c["h"] for c in cells) + 22                 # below the printed sentence
-    crop = page[int(y * PX):int((lay["safe_area_mm"]["bottom"] - lay["square_mm"] - 1) * PX),
+    mark = max(lay["mark_size_mm"]) if "mark_size_mm" in lay else lay["square_mm"]
+    crop = page[int(y * PX):int((lay["safe_area_mm"]["bottom"] - mark - 1) * PX),
                 int(lay["safe_area_mm"]["left"] * PX):int(lay["safe_area_mm"]["right"] * PX)]
     m = ink(crop)
     ys, xs = np.nonzero(m)

@@ -2,31 +2,28 @@
 
 The sentence is split into lines that fit the page. Each line gets two rows:
 one with the faint guide words to trace, then an empty row to write it
-freehand. Guides, labels and the dot ladder are light blue and drop out when
+freehand. Guides, labels and the dot ladder are light coral and drop out when
 the scan is processed. Writes HTML, PDF and a layout.json (row boxes in mm).
 """
-import base64
 import json
 import os
-import subprocess
-import tempfile
 
-from jawi_template import (B, BLUE, CHROME, FONT_DIR, GHOST, LABEL, LATIN, MARGIN, OUT, PH, PW, SQ,
-                           SQUARES, STYLES, L, R, Shaper, T, esc, svg_open)
+import jawi_template as jt
 
 NIB = 3.0                     # calligraphy nib width (mm)
-STYLE = STYLES["thuluth"]
+jt.NIB = NIB                  # the shared header reads the nib from the module
+STYLE = jt.STYLES["thuluth"]
 DOTS = STYLE["dots"]          # alif height in nib dots
 SLACK = 1.05                  # spare width for handwriting (rows are full width, so less is needed)
 SENTENCE = "ساي سوك منوليس جاوي"
 RUMI = "saya suka menulis jawi"
 LINES = ["ساي سوك", "منوليس جاوي"]   # how the sentence is split; each must fit one row
 
-BAND = 6.0                    # label band at the top of each row
+BAND = 6.5                    # label row at the top of each row
 LADDER = 6.0                  # width reserved for the dot ladder at the right edge
 GAP = 3.0                     # gap between rows
-TOP = T + 16                  # below the header
-BOTTOM = B - SQ - 2           # above the bottom squares
+TOP = jt.GRID_TOP             # below the header
+BOTTOM = jt.GRID_BOTTOM       # above the bottom marks
 
 
 def ladder(x_right, base):
@@ -37,19 +34,19 @@ def ladder(x_right, base):
         y1 = base - i * h
         xo = (wd * 0.12) if i % 2 else -(wd * 0.12)
         s.append(f'<path d="M{cx + xo:.2f},{y1:.2f} l{wd / 2:.2f},{-h / 2:.2f} l{-wd / 2:.2f},{-h / 2:.2f} '
-                 f'l{-wd / 2:.2f},{h / 2:.2f} z" fill="{GHOST}"/>')
+                 f'l{-wd / 2:.2f},{h / 2:.2f} z" fill="{jt.GHOST}"/>')
     return s
 
 
 def main():
-    font_path = os.path.join(FONT_DIR, STYLE["file"])
-    shaper = Shaper(font_path)
+    shaper = jt.Shaper(os.path.join(jt.FONT_DIR, STYLE["file"]))
     assert "".join(LINES).replace(" ", "") == SENTENCE.replace(" ", "")
     alif = DOTS * NIB
     size = alif / shaper.ink("ا")[2]                  # font size (mm) giving that alif height
     inks = [shaper.ink(line) for line in LINES]
     top = max(i[2] for i in inks) * size
     bottom = -min(i[3] for i in inks) * size
+    L, R = jt.L, jt.R
     width = R - L - LADDER - 2
     for line, (lft, rgt, _, _) in zip(LINES, inks):
         need = (rgt - lft) * size * SLACK
@@ -65,67 +62,47 @@ def main():
     guides = dict(ascender=round(base - alif, 2), middle=round(base - round(DOTS * 0.4) * NIB, 2),
                   baseline=round(base, 2), descender=round(base + bottom, 2))
 
-    s = [svg_open()]
-    s += [f'<rect x="{x:.2f}" y="{y:.2f}" width="{SQ}" height="{SQ}" fill="#000"/>' for x, y in SQUARES]
-    s.append(f'<text x="{PW / 2}" y="{T + 5:.2f}" text-anchor="middle" font-family="{LATIN}" font-size="3.4" '
-             f'font-weight="bold" fill="#666">miifont jawi · ujian thuluth · pen {NIB:.1f} mm</text>')
-    s.append(f'<text x="{PW / 2}" y="{T + 10:.2f}" text-anchor="middle" font-family="{LATIN}" font-size="2.6" '
-             f'fill="#999">"{RUMI}" · surih baris pudar, kemudian tulis sendiri di bawahnya · '
-             f'cetak 100% · imbas 300 dpi berwarna</text>')
-
+    s = [jt.svg_open()] + jt.header(1, 1, STYLE, title=f"thuluth test, {NIB:.1f} mm nib")
     rows = []
     for i, (line, (lft, rgt, _, _)) in enumerate(zip(LINES, inks)):
         for trace in (True, False):
             y = TOP + len(rows) * (row_h + GAP)
             by = y + base
-            s.append(f'<rect x="{L:.2f}" y="{y:.2f}" width="{R - L:.2f}" height="{row_h:.2f}" rx="1.2" '
-                     f'fill="none" stroke="{BLUE}" stroke-width="0.35"/>')
-            s.append(f'<line x1="{L:.2f}" y1="{y + BAND:.2f}" x2="{R:.2f}" y2="{y + BAND:.2f}" '
-                     f'stroke="{BLUE}" stroke-width="0.2"/>')
+            s.append(f'<g transform="translate({L:.3f},{y:.3f})">')
+            s += jt.brackets(R - L, row_h)
             for k in ("ascender", "middle", "descender"):
-                gy = y + guides[k]
-                s.append(f'<line x1="{L + 1:.2f}" y1="{gy:.2f}" x2="{R - LADDER:.2f}" y2="{gy:.2f}" '
-                         f'stroke="{BLUE}" stroke-width="0.2" stroke-dasharray="0.8 0.8"/>')
-            s.append(f'<line x1="{L + 0.6:.2f}" y1="{by:.2f}" x2="{R - 0.6:.2f}" y2="{by:.2f}" '
-                     f'stroke="{BLUE}" stroke-width="0.35"/>')
-            s += ladder(R, by)
-            label = f"{len(rows) + 1} · {'surih' if trace else 'tulis sendiri'} · baris {i + 1}"
-            s.append(f'<text x="{L + 1.5:.2f}" y="{y + 4.2:.2f}" font-family="{LATIN}" font-size="2.4" '
-                     f'font-weight="bold" fill="{LABEL}">{esc(label)}</text>')
-            s.append(f'<text x="{R - 2:.2f}" y="{y + 4.8:.2f}" text-anchor="end" font-family="Noto Naskh Arabic" '
-                     f'font-size="4.6" fill="{LABEL}">{esc(line)}</text>')
+                s.append(f'<line x1="0.8" y1="{guides[k]}" x2="{R - L - LADDER:.2f}" y2="{guides[k]}" '
+                         f'stroke="{jt.GUIDE}" stroke-width="0.18" stroke-dasharray="0.3 1.1" stroke-linecap="round"/>')
+            s.append(f'<line x1="0.8" y1="{base:.2f}" x2="{R - L - 0.8:.2f}" y2="{base:.2f}" '
+                     f'stroke="{jt.GUIDE}" stroke-width="0.3"/>')
+            s.append(f'<line x1="1.4" y1="{BAND}" x2="{R - L - 1.4:.2f}" y2="{BAND}" stroke="{jt.GUIDE}" '
+                     f'stroke-width="0.18" stroke-dasharray="0.3 0.9" stroke-linecap="round"/>')
+            s.append(f'<text x="1.4" y="4.4" font-family="{jt.LATIN}" font-size="2.3" fill="{jt.LABEL}">'
+                     f'<tspan font-weight="bold">{len(rows) + 1}</tspan>'
+                     f'<tspan dx="1.2">{"surih" if trace else "tulis sendiri"}</tspan></text>')
+            s.append(f'<text x="{R - L - 1.6:.2f}" y="5.0" text-anchor="end" font-family="Noto Naskh Arabic" '
+                     f'font-size="4.4" fill="{jt.LABEL}">{jt.esc(line)}</text>')
+            s.append("</g>")
+            s += ladder(R - 0.4, by)
             if trace:
                 x = R - LADDER - 3 - rgt * size              # right-aligned, as Jawi starts on the right
                 s.append(f'<text x="{x:.3f}" y="{by:.3f}" direction="ltr" text-anchor="start" '
-                         f'font-family="{STYLE["family"]}" font-size="{size:.3f}" fill="{GHOST}">{esc(line)}</text>')
+                         f'font-family="{STYLE["family"]}" font-size="{size:.3f}" fill="{jt.GHOST}">{jt.esc(line)}</text>')
             rows.append(dict(row=len(rows) + 1, line=i + 1, text=line, trace=trace,
                              x=round(L, 3), y=round(y, 3), w=round(R - L, 3), h=round(row_h, 3)))
     s.append("</svg>")
 
-    b64 = lambda f: base64.b64encode(open(os.path.join(FONT_DIR, f), "rb").read()).decode()
-    css = (f"@font-face{{font-family:'{STYLE['family']}';src:url(data:font/ttf;base64,{b64(STYLE['file'])})}}"
-           f"@font-face{{font-family:'Noto Naskh Arabic';src:url(data:font/ttf;base64,{b64(STYLES['naskh']['file'])})}}"
-           "@page{size:A4;margin:0}html,body{margin:0;padding:0}svg{display:block}")
-    html = (f"<!doctype html><html><head><meta charset='utf-8'><title>miifont jawi test · Thuluth</title>"
-            f"<style>{css}</style></head><body>\n" + "\n".join(s) + "\n</body></html>")
-    out = os.path.join(OUT, "test")
+    out = os.path.join(jt.OUT, "test")
     os.makedirs(out, exist_ok=True)
     html_path = os.path.join(out, "miifont-jawi-test-thuluth.html")
-    open(html_path, "w", encoding="utf-8").write(html)
+    open(html_path, "w", encoding="utf-8").write(jt.html_doc("miifont jawi sentence test, Thuluth", ["\n".join(s)], STYLE))
     pdf = html_path[:-5] + ".pdf"
-    if os.path.exists(pdf):
-        os.remove(pdf)
-    with tempfile.TemporaryDirectory() as profile:
-        subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-pdf-header-footer",
-                        f"--user-data-dir={profile}", f"--print-to-pdf={pdf}",
-                        "file:///" + html_path.replace("\\", "/")],
-                       check=True, capture_output=True, timeout=180)
-    if not os.path.exists(pdf):
-        raise SystemExit(f"Chrome did not write {pdf}")
+    jt.print_pdf(html_path, pdf)
     json.dump(dict(note="Single page; positions in mm on A4, row guides relative to the row top.",
-                   style="thuluth", nib_mm=NIB, alif_dots=DOTS, sentence=SENTENCE, rumi=RUMI,
-                   page_mm=[PW, PH], margin_mm=MARGIN, square_mm=SQ,
-                   square_centres_mm=[[round(x + SQ / 2, 3), round(y + SQ / 2, 3)] for x, y in SQUARES],
+                   version=2, style="thuluth", nib_mm=NIB, alif_dots=DOTS, sentence=SENTENCE, rumi=RUMI,
+                   page_mm=[jt.PW, jt.PH], margin_mm=jt.MARGIN, mark_shape="plus",
+                   mark_size_mm=[jt.MARK_W, jt.MARK_H],
+                   mark_centres_mm=[[round(x, 3), round(y, 3)] for x, y in jt.MARKS],
                    row_guides_mm=dict(label_band=BAND, **guides), rows=rows),
               open(os.path.join(out, "layout.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"alif {alif:.0f} mm, {n_rows} rows of {row_h:.1f} mm, widest line "

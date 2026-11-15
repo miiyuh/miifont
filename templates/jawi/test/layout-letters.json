@@ -1,8 +1,51 @@
 {
- "note": "Scanned pages are numbered 1..pages. Positions in mm on A4; cell guides relative to the cell top. `words` lists, right to left, the cell ids that spell each word of the sentence.",
+ "note": "Scanned pages are numbered 1..pages. All positions are millimetres on A4. Cell guide y values are from the cell top; each cell's `guide` x values are from the cell's left edge: `wall_*` is where a joining stroke must stop, `limit_*` the edge of a non-joining side.",
+ "version": 2,
  "style": "thuluth",
  "nib_mm": 3.0,
  "alif_dots": 9,
+ "printer": "Canon PIXMA E470",
+ "page_mm": [
+  210,
+  297
+ ],
+ "safe_area_mm": {
+  "left": 5.0,
+  "right": 205.0,
+  "top": 4.6,
+  "bottom": 278.7
+ },
+ "mark_shape": "plus",
+ "mark_size_mm": [
+  8.0,
+  8.0
+ ],
+ "mark_centres_mm": [
+  [
+   9.0,
+   8.6
+  ],
+  [
+   201.0,
+   8.6
+  ],
+  [
+   9.0,
+   274.7
+  ],
+  [
+   201.0,
+   274.7
+  ]
+ ],
+ "cell_guides_mm": {
+  "label_band": 6.5,
+  "ascender": 13.76,
+  "middle": 28.76,
+  "baseline": 40.76,
+  "descender": 53.74,
+  "kashida": 2.487
+ },
  "sentence": "ساي سوك منوليس جاوي",
  "rumi": "saya suka menulis jawi",
  "words": [
@@ -31,43 +74,6 @@
    3
   ]
  ],
- "page_mm": [
-  210,
-  297
- ],
- "safe_area_mm": {
-  "left": 5.0,
-  "right": 205.0,
-  "top": 4.6,
-  "bottom": 278.7
- },
- "square_mm": 8,
- "square_centres_mm": [
-  [
-   9.0,
-   8.6
-  ],
-  [
-   201.0,
-   8.6
-  ],
-  [
-   9.0,
-   274.7
-  ],
-  [
-   201.0,
-   274.7
-  ]
- ],
- "cell_guides_mm": {
-  "label_band": 7.5,
-  "ascender": 14.28,
-  "middle": 29.28,
-  "baseline": 41.28,
-  "descender": 54.26,
-  "join_tick_inset": 3.2
- },
  "pages": 1,
  "cells": [
   {
@@ -78,12 +84,18 @@
    "id": 1,
    "units": 1,
    "page": 1,
-   "x": 173.333,
-   "y": 20.6,
-   "w": 31.667,
-   "h": 60.15,
+   "x": 166.92,
+   "y": 19.6,
+   "w": 38.08,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 30.506,
+    "wall_left": 7.742,
+    "ink_left": 10.142,
+    "ink_right": 27.938
+   }
   },
   {
    "char": "ا",
@@ -93,12 +105,18 @@
    "id": 2,
    "units": 1,
    "page": 1,
-   "x": 139.667,
-   "y": 20.6,
-   "w": 31.667,
-   "h": 60.15,
+   "x": 126.44,
+   "y": 19.6,
+   "w": 38.08,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 26.064,
+    "limit_left": 12.361,
+    "ink_left": 14.416,
+    "ink_right": 23.664
+   }
   },
   {
    "char": "ي",
@@ -108,12 +126,18 @@
    "id": 3,
    "units": 1,
    "page": 1,
-   "x": 106.0,
-   "y": 20.6,
-   "w": 31.667,
-   "h": 60.15,
+   "x": 85.96,
+   "y": 19.6,
+   "w": 38.08,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 31.519,
+    "limit_left": 6.561,
+    "ink_left": 9.237,
+    "ink_right": 28.843
+   }
   },
   {
    "char": "و",
@@ -121,14 +145,20 @@
    "form": "fina",
    "optional": false,
    "id": 4,
-   "units": 2,
+   "units": 1,
    "page": 1,
-   "x": 38.667,
-   "y": 20.6,
-   "w": 65.333,
-   "h": 60.15,
+   "x": 45.48,
+   "y": 19.6,
+   "w": 38.08,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 32.226,
+    "limit_left": 5.459,
+    "ink_left": 8.254,
+    "ink_right": 29.826
+   }
   },
   {
    "char": "ك",
@@ -139,11 +169,17 @@
    "units": 1,
    "page": 1,
    "x": 5.0,
-   "y": 20.6,
-   "w": 31.667,
-   "h": 60.15,
+   "y": 19.6,
+   "w": 38.08,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 31.089,
+    "limit_left": 6.991,
+    "ink_left": 9.622,
+    "ink_right": 28.458
+   }
   },
   {
    "char": "م",
@@ -153,12 +189,18 @@
    "id": 6,
    "units": 1,
    "page": 1,
-   "x": 173.333,
-   "y": 83.25,
-   "w": 31.667,
-   "h": 60.15,
+   "x": 166.92,
+   "y": 82.625,
+   "w": 38.08,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 26.34,
+    "wall_left": 11.462,
+    "ink_left": 13.862,
+    "ink_right": 24.218
+   }
   },
   {
    "char": "ن",
@@ -168,12 +210,18 @@
    "id": 7,
    "units": 1,
    "page": 1,
-   "x": 139.667,
-   "y": 83.25,
-   "w": 31.667,
-   "h": 60.15,
+   "x": 126.44,
+   "y": 82.625,
+   "w": 38.08,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 26.698,
+    "wall_left": 11.382,
+    "ink_left": 13.782,
+    "ink_right": 24.298
+   }
   },
   {
    "char": "ل",
@@ -183,12 +231,18 @@
    "id": 8,
    "units": 1,
    "page": 1,
-   "x": 106.0,
-   "y": 83.25,
-   "w": 31.667,
-   "h": 60.15,
+   "x": 85.96,
+   "y": 82.625,
+   "w": 38.08,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 23.541,
+    "wall_left": 13.96,
+    "ink_left": 16.36,
+    "ink_right": 21.72
+   }
   },
   {
    "char": "ي",
@@ -198,12 +252,18 @@
    "id": 9,
    "units": 1,
    "page": 1,
-   "x": 72.333,
-   "y": 83.25,
-   "w": 31.667,
-   "h": 60.15,
+   "x": 45.48,
+   "y": 82.625,
+   "w": 38.08,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 26.698,
+    "wall_left": 11.382,
+    "ink_left": 13.782,
+    "ink_right": 24.298
+   }
   },
   {
    "char": "س",
@@ -213,12 +273,18 @@
    "id": 10,
    "units": 2,
    "page": 1,
-   "x": 5.0,
-   "y": 83.25,
-   "w": 65.333,
-   "h": 60.15,
+   "x": 126.44,
+   "y": 145.65,
+   "w": 78.56,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 57.961,
+    "limit_left": 19.545,
+    "ink_left": 22.999,
+    "ink_right": 55.561
+   }
   },
   {
    "char": "ج",
@@ -228,12 +294,18 @@
    "id": 11,
    "units": 1,
    "page": 1,
-   "x": 173.333,
-   "y": 145.9,
-   "w": 31.667,
-   "h": 60.15,
+   "x": 5.0,
+   "y": 82.625,
+   "w": 38.08,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 30.899,
+    "wall_left": 7.391,
+    "ink_left": 9.791,
+    "ink_right": 28.289
+   }
   },
   {
    "char": "و",
@@ -243,12 +315,18 @@
    "id": 12,
    "units": 1,
    "page": 1,
-   "x": 139.667,
-   "y": 145.9,
-   "w": 31.667,
-   "h": 60.15,
+   "x": 85.96,
+   "y": 145.65,
+   "w": 38.08,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 31.848,
+    "limit_left": 6.232,
+    "ink_left": 8.943,
+    "ink_right": 29.137
+   }
   }
  ]
 }

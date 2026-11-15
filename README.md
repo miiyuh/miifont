@@ -105,23 +105,30 @@ Each has an instructions page plus 151 cells:
 - every letter in each contextual shape it takes: tunggal, awal, tengah, akhir
 - tatwil and Arabic punctuation (، ؛ ؟), plus optional Arabic digits
 
-Every cell has a faint guide letter to trace or follow. It's printed light enough to be dropped automatically when the scan is processed, so only your own ink ends up in the font. Sides that join a neighbouring letter have a tick on the baseline, and the joining stroke runs right up to it so the letters connect cleanly once typed. Shapes too wide for one cell get double-width cells.
+Every cell has a faint guide letter to trace or follow. The cells are strict about length, so the letters join cleanly once typed:
 
-There's also a one-page Thuluth test sheet, [`templates/jawi/test/miifont-jawi-test-thuluth.pdf`](templates/jawi/test/miifont-jawi-test-thuluth.pdf), sized for a **3.0 mm** nib (alif 9 dots, 27 mm). It has the sentence ساي سوك منوليس جاوي (*saya suka menulis jawi*) over two lines. Each line has a row to trace and a row to write freehand. `scripts/jawi_test.py` builds it; change `NIB`, `SENTENCE` or `LINES` there.
+- a side that joins the next letter has a **wall** a short way past the guide letter, and a lane on the baseline as thick as the joining stroke. The stroke runs along the lane and stops at the wall.
+- a side that doesn't join has a dashed limit at the letter's expected width.
+- everything past a wall or a limit is hatched. Keep ink out of it.
 
-A second test sheet, [`templates/jawi/test/miifont-jawi-test-letters-thuluth.pdf`](templates/jawi/test/miifont-jawi-test-letters-thuluth.pdf), has just the 12 letter forms that sentence needs, one per cell like the full template, also for a 3.0 mm nib. Its `layout-letters.json` lists which cells spell each word, so the scanned letters can be joined back into the sentence. `scripts/jawi_test_letters.py` builds it.
+All the guides are light red, which the scan processing drops, so only black ink ends up in the font. The plus signs in the corners line the scans up. Shapes too wide for one cell get double-width cells. Layla Thuluth has no ڠ ݢ ڽ ۏ, so in the Thuluth template those cells show the base letter (ع ك ن و) with a note on which dots to add.
+
+`scripts/jawi_template.py` generates the PDFs and a `layout.json` for each style, which records every cell, wall and limit so the scans can be cut exactly where the strokes stop. The guide fonts are in [`templates/jawi/fonts`](templates/jawi/fonts) (both OFL).
+
+### test sheets
+
+Two one-page Thuluth sheets for a **3.0 mm** nib (alif 9 dots, 27 mm), built around the sentence ساي سوك منوليس جاوي (*saya suka menulis jawi*):
+
+- [`miifont-jawi-test-letters-thuluth.pdf`](templates/jawi/test/miifont-jawi-test-letters-thuluth.pdf) has just the 12 letter forms the sentence needs, in the same cells as the full template. Its `layout-letters.json` lists which cells spell each word. `scripts/jawi_test_letters.py` builds it.
+- [`miifont-jawi-test-thuluth.pdf`](templates/jawi/test/miifont-jawi-test-thuluth.pdf) has the sentence over two lines, each with a row to trace and a row to write freehand. `scripts/jawi_test.py` builds it; change `NIB`, `SENTENCE` or `LINES` there.
 
 ### jawi test font
 
-[`fonts/jawi-test/miifont-JawiTest.ttf`](fonts/jawi-test/miifont-JawiTest.ttf) (**miifont Jawi Test**) is built from the filled letter test sheet ([`scans/jawi-test-letters.jpg`](scans/jawi-test-letters.jpg)). It has the 12 letter forms of ساي سوك منوليس جاوي and picks the right form automatically, so the sentence (and other words made only of those forms) types in your handwriting. The letters are traced as filled outlines to keep the broad-nib thick and thin strokes, and the long joining strokes the template asks for are trimmed to a natural length.
+[`fonts/jawi-test/miifont-JawiTest.ttf`](fonts/jawi-test/miifont-JawiTest.ttf) (**miifont Jawi Test**) is built from a filled letter sheet ([`scans/jawi-test-letters.jpg`](scans/jawi-test-letters.jpg), printed from the first version of the sheet, whose layout is kept next to it). It has the 12 letter forms of ساي سوك منوليس جاوي and picks the right form automatically, so the sentence (and other words made only of those forms) types in your handwriting. The letters are traced as filled outlines to keep the broad-nib thick and thin strokes.
 
 ![jawi test preview](fonts/jawi-test/preview.png)
 
-`scripts/jawi_test_font.py` rebuilds it from the scan.
-
-Layla Thuluth has no ڠ ݢ ڽ ۏ, so in the Thuluth template those cells show the base letter (ع ك ن و) with a note on which dots to add.
-
-`scripts/jawi_template.py` generates the PDFs and a `layout.json` for each style, which records where every cell is so the scans can be cut up. The guide fonts are in [`templates/jawi/fonts`](templates/jawi/fonts) (both OFL).
+`scripts/jawi_test_font.py [scan.jpg [layout.json [out_dir]]]` rebuilds it. With no arguments it uses the scan above.
 
 ## known limitations
 

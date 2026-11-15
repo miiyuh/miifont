@@ -1,5 +1,6 @@
 {
- "note": "Scanned pages are numbered 1..pages (the instructions sheet is not scanned). All positions are millimetres on A4; cell guides are relative to the cell top.",
+ "note": "Scanned pages are numbered 1..pages. All positions are millimetres on A4. Cell guide y values are from the cell top; each cell's `guide` x values are from the cell's left edge: `wall_*` is where a joining stroke must stop, `limit_*` the edge of a non-joining side.",
+ "version": 2,
  "style": "thuluth",
  "nib_mm": 2.0,
  "alif_dots": 9,
@@ -14,8 +15,12 @@
   "top": 4.6,
   "bottom": 278.7
  },
- "square_mm": 8,
- "square_centres_mm": [
+ "mark_shape": "plus",
+ "mark_size_mm": [
+  8.0,
+  8.0
+ ],
+ "mark_centres_mm": [
   [
    9.0,
    8.6
@@ -34,12 +39,12 @@
   ]
  ],
  "cell_guides_mm": {
-  "label_band": 7.5,
-  "ascender": 21.54,
-  "middle": 31.54,
-  "baseline": 39.54,
-  "descender": 52.56,
-  "join_tick_inset": 3.2
+  "label_band": 6.5,
+  "ascender": 21.02,
+  "middle": 31.02,
+  "baseline": 39.02,
+  "descender": 52.04,
+  "kashida": 1.658
  },
  "pages": 7,
  "cells": [
@@ -51,12 +56,18 @@
    "id": 1,
    "units": 1,
    "page": 1,
-   "x": 178.143,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 15.616,
+    "limit_left": 10.898,
+    "ink_left": 12.043,
+    "ink_right": 14.471
+   }
   },
   {
    "char": "ا",
@@ -66,12 +77,18 @@
    "id": 2,
    "units": 1,
    "page": 1,
-   "x": 149.286,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 17.94,
+    "limit_left": 8.804,
+    "ink_left": 10.174,
+    "ink_right": 16.34
+   }
   },
   {
    "char": "أ",
@@ -81,12 +98,18 @@
    "id": 3,
    "units": 1,
    "page": 1,
-   "x": 120.429,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 16.452,
+    "limit_left": 10.062,
+    "ink_left": 11.297,
+    "ink_right": 15.217
+   }
   },
   {
    "char": "أ",
@@ -96,12 +119,18 @@
    "id": 4,
    "units": 1,
    "page": 1,
-   "x": 91.571,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 17.94,
+    "limit_left": 8.804,
+    "ink_left": 10.174,
+    "ink_right": 16.34
+   }
   },
   {
    "char": "إ",
@@ -111,12 +140,18 @@
    "id": 5,
    "units": 1,
    "page": 1,
-   "x": 62.714,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 16.452,
+    "limit_left": 10.062,
+    "ink_left": 11.297,
+    "ink_right": 15.217
+   }
   },
   {
    "char": "إ",
@@ -126,12 +161,18 @@
    "id": 6,
    "units": 1,
    "page": 1,
-   "x": 33.857,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 17.94,
+    "limit_left": 8.804,
+    "ink_left": 10.174,
+    "ink_right": 16.34
+   }
   },
   {
    "char": "ب",
@@ -142,11 +183,17 @@
    "units": 1,
    "page": 1,
    "x": 5.0,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 22.429,
+    "limit_left": 4.085,
+    "ink_left": 5.961,
+    "ink_right": 20.553
+   }
   },
   {
    "char": "ب",
@@ -156,12 +203,18 @@
    "id": 8,
    "units": 1,
    "page": 1,
-   "x": 178.143,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 17.448,
+    "wall_left": 8.808,
+    "ink_left": 10.408,
+    "ink_right": 16.106
+   }
   },
   {
    "char": "ب",
@@ -171,12 +224,18 @@
    "id": 9,
    "units": 1,
    "page": 1,
-   "x": 149.286,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 18.362,
+    "wall_left": 8.152,
+    "ink_left": 9.752,
+    "ink_right": 16.762
+   }
   },
   {
    "char": "ب",
@@ -186,12 +245,18 @@
    "id": 10,
    "units": 2,
    "page": 1,
-   "x": 91.571,
-   "y": 83.25,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 82.625,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 38.397,
+    "limit_left": 16.542,
+    "ink_left": 18.632,
+    "ink_right": 36.797
+   }
   },
   {
    "char": "ت",
@@ -201,12 +266,18 @@
    "id": 11,
    "units": 1,
    "page": 1,
-   "x": 62.714,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 22.429,
+    "limit_left": 4.085,
+    "ink_left": 5.961,
+    "ink_right": 20.553
+   }
   },
   {
    "char": "ت",
@@ -216,12 +287,18 @@
    "id": 12,
    "units": 1,
    "page": 1,
-   "x": 33.857,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 17.448,
+    "wall_left": 8.808,
+    "ink_left": 10.408,
+    "ink_right": 16.106
+   }
   },
   {
    "char": "ت",
@@ -232,11 +309,17 @@
    "units": 1,
    "page": 1,
    "x": 5.0,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 18.46,
+    "wall_left": 8.054,
+    "ink_left": 9.654,
+    "ink_right": 16.86
+   }
   },
   {
    "char": "ت",
@@ -246,12 +329,18 @@
    "id": 14,
    "units": 2,
    "page": 1,
-   "x": 149.286,
-   "y": 145.9,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 145.65,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 38.397,
+    "limit_left": 16.542,
+    "ink_left": 18.632,
+    "ink_right": 36.797
+   }
   },
   {
    "char": "ة",
@@ -261,12 +350,18 @@
    "id": 15,
    "units": 1,
    "page": 1,
-   "x": 120.429,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 17.018,
+    "limit_left": 9.496,
+    "ink_left": 10.792,
+    "ink_right": 15.722
+   }
   },
   {
    "char": "ة",
@@ -276,12 +371,18 @@
    "id": 16,
    "units": 1,
    "page": 1,
-   "x": 91.571,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 20.631,
+    "limit_left": 5.79,
+    "ink_left": 7.483,
+    "ink_right": 19.031
+   }
   },
   {
    "char": "ث",
@@ -291,12 +392,18 @@
    "id": 17,
    "units": 1,
    "page": 1,
-   "x": 62.714,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 22.429,
+    "limit_left": 4.085,
+    "ink_left": 5.961,
+    "ink_right": 20.553
+   }
   },
   {
    "char": "ث",
@@ -306,12 +413,18 @@
    "id": 18,
    "units": 1,
    "page": 1,
-   "x": 33.857,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 17.448,
+    "wall_left": 8.808,
+    "ink_left": 10.408,
+    "ink_right": 16.106
+   }
   },
   {
    "char": "ث",
@@ -322,11 +435,17 @@
    "units": 1,
    "page": 1,
    "x": 5.0,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 18.362,
+    "wall_left": 8.152,
+    "ink_left": 9.752,
+    "ink_right": 16.762
+   }
   },
   {
    "char": "ث",
@@ -336,12 +455,18 @@
    "id": 20,
    "units": 2,
    "page": 1,
-   "x": 149.286,
-   "y": 208.55,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 208.675,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 38.397,
+    "limit_left": 16.542,
+    "ink_left": 18.632,
+    "ink_right": 36.797
+   }
   },
   {
    "char": "ج",
@@ -351,12 +476,18 @@
    "id": 21,
    "units": 1,
    "page": 1,
-   "x": 120.429,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 21.365,
+    "limit_left": 5.149,
+    "ink_left": 6.91,
+    "ink_right": 19.604
+   }
   },
   {
    "char": "ج",
@@ -366,12 +497,18 @@
    "id": 22,
    "units": 1,
    "page": 1,
-   "x": 91.571,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 21.163,
+    "wall_left": 5.491,
+    "ink_left": 7.091,
+    "ink_right": 19.423
+   }
   },
   {
    "char": "ج",
@@ -381,12 +518,18 @@
    "id": 23,
    "units": 1,
    "page": 1,
-   "x": 62.714,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 21.151,
+    "wall_left": 5.363,
+    "ink_left": 6.963,
+    "ink_right": 19.551
+   }
   },
   {
    "char": "ج",
@@ -396,12 +539,18 @@
    "id": 24,
    "units": 1,
    "page": 1,
-   "x": 33.857,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 21.43,
+    "limit_left": 4.895,
+    "ink_left": 6.684,
+    "ink_right": 19.83
+   }
   },
   {
    "char": "چ",
@@ -412,11 +561,17 @@
    "units": 1,
    "page": 1,
    "x": 5.0,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 21.365,
+    "limit_left": 5.149,
+    "ink_left": 6.91,
+    "ink_right": 19.604
+   }
   },
   {
    "char": "چ",
@@ -426,12 +581,18 @@
    "id": 26,
    "units": 1,
    "page": 2,
-   "x": 178.143,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 21.163,
+    "wall_left": 5.491,
+    "ink_left": 7.091,
+    "ink_right": 19.423
+   }
   },
   {
    "char": "چ",
@@ -441,12 +602,18 @@
    "id": 27,
    "units": 1,
    "page": 2,
-   "x": 149.286,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 21.151,
+    "wall_left": 5.363,
+    "ink_left": 6.963,
+    "ink_right": 19.551
+   }
   },
   {
    "char": "چ",
@@ -456,12 +623,18 @@
    "id": 28,
    "units": 1,
    "page": 2,
-   "x": 120.429,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 21.43,
+    "limit_left": 4.895,
+    "ink_left": 6.684,
+    "ink_right": 19.83
+   }
   },
   {
    "char": "ح",
@@ -471,12 +644,18 @@
    "id": 29,
    "units": 1,
    "page": 2,
-   "x": 91.571,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 21.365,
+    "limit_left": 5.149,
+    "ink_left": 6.91,
+    "ink_right": 19.604
+   }
   },
   {
    "char": "ح",
@@ -486,12 +665,18 @@
    "id": 30,
    "units": 1,
    "page": 2,
-   "x": 62.714,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 21.163,
+    "wall_left": 5.491,
+    "ink_left": 7.091,
+    "ink_right": 19.423
+   }
   },
   {
    "char": "ح",
@@ -501,12 +686,18 @@
    "id": 31,
    "units": 1,
    "page": 2,
-   "x": 33.857,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 21.37,
+    "wall_left": 5.144,
+    "ink_left": 6.744,
+    "ink_right": 19.77
+   }
   },
   {
    "char": "ح",
@@ -517,11 +708,17 @@
    "units": 1,
    "page": 2,
    "x": 5.0,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 21.43,
+    "limit_left": 4.895,
+    "ink_left": 6.684,
+    "ink_right": 19.83
+   }
   },
   {
    "char": "خ",
@@ -531,12 +728,18 @@
    "id": 33,
    "units": 1,
    "page": 2,
-   "x": 178.143,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 21.365,
+    "limit_left": 5.149,
+    "ink_left": 6.91,
+    "ink_right": 19.604
+   }
   },
   {
    "char": "خ",
@@ -546,12 +749,18 @@
    "id": 34,
    "units": 1,
    "page": 2,
-   "x": 149.286,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 21.163,
+    "wall_left": 5.491,
+    "ink_left": 7.091,
+    "ink_right": 19.423
+   }
   },
   {
    "char": "خ",
@@ -561,12 +770,18 @@
    "id": 35,
    "units": 1,
    "page": 2,
-   "x": 120.429,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 21.317,
+    "wall_left": 5.197,
+    "ink_left": 6.797,
+    "ink_right": 19.717
+   }
   },
   {
    "char": "خ",
@@ -576,12 +791,18 @@
    "id": 36,
    "units": 1,
    "page": 2,
-   "x": 91.571,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 21.43,
+    "limit_left": 4.895,
+    "ink_left": 6.684,
+    "ink_right": 19.83
+   }
   },
   {
    "char": "د",
@@ -591,12 +812,18 @@
    "id": 37,
    "units": 1,
    "page": 2,
-   "x": 62.714,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 19.567,
+    "limit_left": 6.947,
+    "ink_left": 8.516,
+    "ink_right": 17.998
+   }
   },
   {
    "char": "د",
@@ -606,12 +833,18 @@
    "id": 38,
    "units": 1,
    "page": 2,
-   "x": 33.857,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 21.287,
+    "limit_left": 5.056,
+    "ink_left": 6.827,
+    "ink_right": 19.687
+   }
   },
   {
    "char": "ذ",
@@ -622,11 +855,17 @@
    "units": 1,
    "page": 2,
    "x": 5.0,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 19.567,
+    "limit_left": 6.947,
+    "ink_left": 8.516,
+    "ink_right": 17.998
+   }
   },
   {
    "char": "ذ",
@@ -636,12 +875,18 @@
    "id": 40,
    "units": 1,
    "page": 2,
-   "x": 178.143,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 21.287,
+    "limit_left": 5.056,
+    "ink_left": 6.827,
+    "ink_right": 19.687
+   }
   },
   {
    "char": "ر",
@@ -651,12 +896,18 @@
    "id": 41,
    "units": 1,
    "page": 2,
-   "x": 149.286,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 22.049,
+    "limit_left": 4.465,
+    "ink_left": 6.3,
+    "ink_right": 20.214
+   }
   },
   {
    "char": "ر",
@@ -666,12 +917,18 @@
    "id": 42,
    "units": 1,
    "page": 2,
-   "x": 120.429,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 22.274,
+    "limit_left": 3.95,
+    "ink_left": 5.84,
+    "ink_right": 20.674
+   }
   },
   {
    "char": "ز",
@@ -681,12 +938,18 @@
    "id": 43,
    "units": 1,
    "page": 2,
-   "x": 91.571,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 22.049,
+    "limit_left": 4.465,
+    "ink_left": 6.3,
+    "ink_right": 20.214
+   }
   },
   {
    "char": "ز",
@@ -696,12 +959,18 @@
    "id": 44,
    "units": 1,
    "page": 2,
-   "x": 62.714,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 22.274,
+    "limit_left": 3.95,
+    "ink_left": 5.84,
+    "ink_right": 20.674
+   }
   },
   {
    "char": "س",
@@ -712,11 +981,17 @@
    "units": 2,
    "page": 2,
    "x": 5.0,
-   "y": 145.9,
-   "w": 55.714,
-   "h": 60.15,
+   "y": 145.65,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 39.808,
+    "limit_left": 15.621,
+    "ink_left": 17.81,
+    "ink_right": 37.619
+   }
   },
   {
    "char": "س",
@@ -726,12 +1001,18 @@
    "id": 46,
    "units": 1,
    "page": 2,
-   "x": 178.143,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 20.901,
+    "wall_left": 5.725,
+    "ink_left": 7.325,
+    "ink_right": 19.189
+   }
   },
   {
    "char": "س",
@@ -741,12 +1022,18 @@
    "id": 47,
    "units": 1,
    "page": 2,
-   "x": 149.286,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 21.822,
+    "wall_left": 4.692,
+    "ink_left": 6.292,
+    "ink_right": 20.222
+   }
   },
   {
    "char": "س",
@@ -756,12 +1043,18 @@
    "id": 48,
    "units": 2,
    "page": 2,
-   "x": 91.571,
-   "y": 208.55,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 208.675,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 40.169,
+    "limit_left": 14.558,
+    "ink_left": 16.86,
+    "ink_right": 38.569
+   }
   },
   {
    "char": "ش",
@@ -771,12 +1064,18 @@
    "id": 49,
    "units": 2,
    "page": 2,
-   "x": 33.857,
-   "y": 208.55,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 208.675,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 39.808,
+    "limit_left": 15.621,
+    "ink_left": 17.81,
+    "ink_right": 37.619
+   }
   },
   {
    "char": "ش",
@@ -787,11 +1086,17 @@
    "units": 1,
    "page": 2,
    "x": 5.0,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 20.901,
+    "wall_left": 5.725,
+    "ink_left": 7.325,
+    "ink_right": 19.189
+   }
   },
   {
    "char": "ش",
@@ -801,12 +1106,18 @@
    "id": 51,
    "units": 1,
    "page": 3,
-   "x": 178.143,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 21.822,
+    "wall_left": 4.692,
+    "ink_left": 6.292,
+    "ink_right": 20.222
+   }
   },
   {
    "char": "ش",
@@ -816,12 +1127,18 @@
    "id": 52,
    "units": 2,
    "page": 3,
-   "x": 120.429,
-   "y": 20.6,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 19.6,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 40.169,
+    "limit_left": 14.558,
+    "ink_left": 16.86,
+    "ink_right": 38.569
+   }
   },
   {
    "char": "ص",
@@ -831,12 +1148,18 @@
    "id": 53,
    "units": 2,
    "page": 3,
-   "x": 62.714,
-   "y": 20.6,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 19.6,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 40.913,
+    "limit_left": 14.516,
+    "ink_left": 16.823,
+    "ink_right": 38.606
+   }
   },
   {
    "char": "ص",
@@ -846,12 +1169,18 @@
    "id": 54,
    "units": 1,
    "page": 3,
-   "x": 33.857,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 21.247,
+    "wall_left": 5.416,
+    "ink_left": 7.016,
+    "ink_right": 19.498
+   }
   },
   {
    "char": "ص",
@@ -862,11 +1191,17 @@
    "units": 1,
    "page": 3,
    "x": 5.0,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 21.483,
+    "wall_left": 5.031,
+    "ink_left": 6.631,
+    "ink_right": 19.883
+   }
   },
   {
    "char": "ص",
@@ -876,12 +1211,18 @@
    "id": 56,
    "units": 2,
    "page": 3,
-   "x": 149.286,
-   "y": 83.25,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 82.625,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 40.734,
+    "limit_left": 13.925,
+    "ink_left": 16.295,
+    "ink_right": 39.134
+   }
   },
   {
    "char": "ض",
@@ -891,12 +1232,18 @@
    "id": 57,
    "units": 2,
    "page": 3,
-   "x": 91.571,
-   "y": 83.25,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 82.625,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 40.913,
+    "limit_left": 14.516,
+    "ink_left": 16.823,
+    "ink_right": 38.606
+   }
   },
   {
    "char": "ض",
@@ -906,12 +1253,18 @@
    "id": 58,
    "units": 1,
    "page": 3,
-   "x": 62.714,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 21.247,
+    "wall_left": 5.416,
+    "ink_left": 7.016,
+    "ink_right": 19.498
+   }
   },
   {
    "char": "ض",
@@ -921,12 +1274,18 @@
    "id": 59,
    "units": 1,
    "page": 3,
-   "x": 33.857,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 21.648,
+    "wall_left": 4.866,
+    "ink_left": 6.466,
+    "ink_right": 20.048
+   }
   },
   {
    "char": "ض",
@@ -936,12 +1295,18 @@
    "id": 60,
    "units": 2,
    "page": 3,
-   "x": 149.286,
-   "y": 145.9,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 145.65,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 40.825,
+    "limit_left": 13.823,
+    "ink_left": 16.204,
+    "ink_right": 39.225
+   }
   },
   {
    "char": "ط",
@@ -952,11 +1317,17 @@
    "units": 1,
    "page": 3,
    "x": 5.0,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 22.269,
+    "limit_left": 4.245,
+    "ink_left": 6.104,
+    "ink_right": 20.41
+   }
   },
   {
    "char": "ط",
@@ -966,12 +1337,18 @@
    "id": 62,
    "units": 1,
    "page": 3,
-   "x": 120.429,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 20.8,
+    "wall_left": 5.815,
+    "ink_left": 7.415,
+    "ink_right": 19.099
+   }
   },
   {
    "char": "ط",
@@ -981,12 +1358,18 @@
    "id": 63,
    "units": 1,
    "page": 3,
-   "x": 91.571,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 21.226,
+    "wall_left": 5.288,
+    "ink_left": 6.888,
+    "ink_right": 19.626
+   }
   },
   {
    "char": "ط",
@@ -996,12 +1379,18 @@
    "id": 64,
    "units": 1,
    "page": 3,
-   "x": 62.714,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 22.598,
+    "limit_left": 3.587,
+    "ink_left": 5.516,
+    "ink_right": 20.998
+   }
   },
   {
    "char": "ظ",
@@ -1011,12 +1400,18 @@
    "id": 65,
    "units": 1,
    "page": 3,
-   "x": 33.857,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 22.269,
+    "limit_left": 4.245,
+    "ink_left": 6.104,
+    "ink_right": 20.41
+   }
   },
   {
    "char": "ظ",
@@ -1027,11 +1422,17 @@
    "units": 1,
    "page": 3,
    "x": 5.0,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 20.8,
+    "wall_left": 5.815,
+    "ink_left": 7.415,
+    "ink_right": 19.099
+   }
   },
   {
    "char": "ظ",
@@ -1041,12 +1442,18 @@
    "id": 67,
    "units": 1,
    "page": 3,
-   "x": 178.143,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 21.339,
+    "wall_left": 5.175,
+    "ink_left": 6.775,
+    "ink_right": 19.739
+   }
   },
   {
    "char": "ظ",
@@ -1056,12 +1463,18 @@
    "id": 68,
    "units": 1,
    "page": 3,
-   "x": 149.286,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 22.666,
+    "limit_left": 3.511,
+    "ink_left": 5.448,
+    "ink_right": 21.066
+   }
   },
   {
    "char": "ع",
@@ -1071,12 +1484,18 @@
    "id": 69,
    "units": 1,
    "page": 3,
-   "x": 120.429,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 22.893,
+    "limit_left": 3.621,
+    "ink_left": 5.546,
+    "ink_right": 20.968
+   }
   },
   {
    "char": "ع",
@@ -1086,12 +1505,18 @@
    "id": 70,
    "units": 1,
    "page": 3,
-   "x": 91.571,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 19.888,
+    "wall_left": 6.629,
+    "ink_left": 8.229,
+    "ink_right": 18.285
+   }
   },
   {
    "char": "ع",
@@ -1101,12 +1526,18 @@
    "id": 71,
    "units": 1,
    "page": 3,
-   "x": 62.714,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 19.591,
+    "wall_left": 6.923,
+    "ink_left": 8.523,
+    "ink_right": 17.991
+   }
   },
   {
    "char": "ع",
@@ -1116,12 +1547,18 @@
    "id": 72,
    "units": 1,
    "page": 3,
-   "x": 33.857,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 22.244,
+    "limit_left": 3.984,
+    "ink_left": 5.87,
+    "ink_right": 20.644
+   }
   },
   {
    "char": "غ",
@@ -1132,11 +1569,17 @@
    "units": 1,
    "page": 3,
    "x": 5.0,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 22.893,
+    "limit_left": 3.621,
+    "ink_left": 5.546,
+    "ink_right": 20.968
+   }
   },
   {
    "char": "غ",
@@ -1146,12 +1589,18 @@
    "id": 74,
    "units": 1,
    "page": 4,
-   "x": 178.143,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 19.888,
+    "wall_left": 6.629,
+    "ink_left": 8.229,
+    "ink_right": 18.285
+   }
   },
   {
    "char": "غ",
@@ -1161,12 +1610,18 @@
    "id": 75,
    "units": 1,
    "page": 4,
-   "x": 149.286,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 19.545,
+    "wall_left": 6.969,
+    "ink_left": 8.569,
+    "ink_right": 17.945
+   }
   },
   {
    "char": "غ",
@@ -1176,12 +1631,18 @@
    "id": 76,
    "units": 1,
    "page": 4,
-   "x": 120.429,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 22.244,
+    "limit_left": 3.984,
+    "ink_left": 5.87,
+    "ink_right": 20.644
+   }
   },
   {
    "char": "ڠ",
@@ -1191,12 +1652,18 @@
    "id": 77,
    "units": 1,
    "page": 4,
-   "x": 91.571,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 22.893,
+    "limit_left": 3.621,
+    "ink_left": 5.546,
+    "ink_right": 20.968
+   }
   },
   {
    "char": "ڠ",
@@ -1206,12 +1673,18 @@
    "id": 78,
    "units": 1,
    "page": 4,
-   "x": 62.714,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 19.888,
+    "wall_left": 6.629,
+    "ink_left": 8.229,
+    "ink_right": 18.285
+   }
   },
   {
    "char": "ڠ",
@@ -1221,12 +1694,18 @@
    "id": 79,
    "units": 1,
    "page": 4,
-   "x": 33.857,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 19.591,
+    "wall_left": 6.923,
+    "ink_left": 8.523,
+    "ink_right": 17.991
+   }
   },
   {
    "char": "ڠ",
@@ -1237,11 +1716,17 @@
    "units": 1,
    "page": 4,
    "x": 5.0,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 22.244,
+    "limit_left": 3.984,
+    "ink_left": 5.87,
+    "ink_right": 20.644
+   }
   },
   {
    "char": "ف",
@@ -1251,12 +1736,18 @@
    "id": 81,
    "units": 1,
    "page": 4,
-   "x": 178.143,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 23.012,
+    "limit_left": 3.502,
+    "ink_left": 5.44,
+    "ink_right": 21.074
+   }
   },
   {
    "char": "ف",
@@ -1266,12 +1757,18 @@
    "id": 82,
    "units": 1,
    "page": 4,
-   "x": 149.286,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 17.296,
+    "wall_left": 8.943,
+    "ink_left": 10.543,
+    "ink_right": 15.971
+   }
   },
   {
    "char": "ف",
@@ -1281,12 +1778,18 @@
    "id": 83,
    "units": 1,
    "page": 4,
-   "x": 120.429,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 17.978,
+    "wall_left": 8.536,
+    "ink_left": 10.136,
+    "ink_right": 16.378
+   }
   },
   {
    "char": "ف",
@@ -1296,12 +1799,18 @@
    "id": 84,
    "units": 2,
    "page": 4,
-   "x": 62.714,
-   "y": 83.25,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 82.625,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 38.073,
+    "limit_left": 16.905,
+    "ink_left": 18.956,
+    "ink_right": 36.473
+   }
   },
   {
    "char": "ڤ",
@@ -1311,12 +1820,18 @@
    "id": 85,
    "units": 1,
    "page": 4,
-   "x": 33.857,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 23.012,
+    "limit_left": 3.502,
+    "ink_left": 5.44,
+    "ink_right": 21.074
+   }
   },
   {
    "char": "ڤ",
@@ -1327,11 +1842,17 @@
    "units": 1,
    "page": 4,
    "x": 5.0,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 17.296,
+    "wall_left": 8.943,
+    "ink_left": 10.543,
+    "ink_right": 15.971
+   }
   },
   {
    "char": "ڤ",
@@ -1341,12 +1862,18 @@
    "id": 87,
    "units": 1,
    "page": 4,
-   "x": 178.143,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 17.782,
+    "wall_left": 8.732,
+    "ink_left": 10.332,
+    "ink_right": 16.182
+   }
   },
   {
    "char": "ڤ",
@@ -1356,12 +1883,18 @@
    "id": 88,
    "units": 2,
    "page": 4,
-   "x": 120.429,
-   "y": 145.9,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 145.65,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 38.021,
+    "limit_left": 16.964,
+    "ink_left": 19.008,
+    "ink_right": 36.421
+   }
   },
   {
    "char": "ق",
@@ -1371,12 +1904,18 @@
    "id": 89,
    "units": 1,
    "page": 4,
-   "x": 91.571,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 21.695,
+    "limit_left": 4.819,
+    "ink_left": 6.616,
+    "ink_right": 19.898
+   }
   },
   {
    "char": "ق",
@@ -1386,12 +1925,18 @@
    "id": 90,
    "units": 1,
    "page": 4,
-   "x": 62.714,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 17.296,
+    "wall_left": 8.943,
+    "ink_left": 10.543,
+    "ink_right": 15.971
+   }
   },
   {
    "char": "ق",
@@ -1401,12 +1946,18 @@
    "id": 91,
    "units": 1,
    "page": 4,
-   "x": 33.857,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 18.03,
+    "wall_left": 8.484,
+    "ink_left": 10.084,
+    "ink_right": 16.43
+   }
   },
   {
    "char": "ق",
@@ -1417,11 +1968,17 @@
    "units": 1,
    "page": 4,
    "x": 5.0,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 21.995,
+    "limit_left": 4.262,
+    "ink_left": 6.119,
+    "ink_right": 20.395
+   }
   },
   {
    "char": "ك",
@@ -1431,12 +1988,18 @@
    "id": 93,
    "units": 1,
    "page": 4,
-   "x": 178.143,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 21.289,
+    "limit_left": 5.225,
+    "ink_left": 6.978,
+    "ink_right": 19.536
+   }
   },
   {
    "char": "ك",
@@ -1446,12 +2009,18 @@
    "id": 94,
    "units": 2,
    "page": 4,
-   "x": 120.429,
-   "y": 208.55,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 208.675,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 39.233,
+    "wall_left": 16.723,
+    "ink_left": 18.323,
+    "ink_right": 37.106
+   }
   },
   {
    "char": "ك",
@@ -1461,12 +2030,18 @@
    "id": 95,
    "units": 2,
    "page": 4,
-   "x": 62.714,
-   "y": 208.55,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 208.675,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 38.706,
+    "wall_left": 16.723,
+    "ink_left": 18.323,
+    "ink_right": 37.106
+   }
   },
   {
    "char": "ك",
@@ -1476,12 +2051,18 @@
    "id": 96,
    "units": 1,
    "page": 4,
-   "x": 33.857,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 22.478,
+    "limit_left": 3.722,
+    "ink_left": 5.636,
+    "ink_right": 20.878
+   }
   },
   {
    "char": "ݢ",
@@ -1492,11 +2073,17 @@
    "units": 1,
    "page": 4,
    "x": 5.0,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 21.289,
+    "limit_left": 5.225,
+    "ink_left": 6.978,
+    "ink_right": 19.536
+   }
   },
   {
    "char": "ݢ",
@@ -1506,12 +2093,18 @@
    "id": 98,
    "units": 2,
    "page": 5,
-   "x": 149.286,
-   "y": 20.6,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 19.6,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 39.233,
+    "wall_left": 16.723,
+    "ink_left": 18.323,
+    "ink_right": 37.106
+   }
   },
   {
    "char": "ݢ",
@@ -1521,12 +2114,18 @@
    "id": 99,
    "units": 2,
    "page": 5,
-   "x": 91.571,
-   "y": 20.6,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 19.6,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 38.706,
+    "wall_left": 16.723,
+    "ink_left": 18.323,
+    "ink_right": 37.106
+   }
   },
   {
    "char": "ݢ",
@@ -1536,12 +2135,18 @@
    "id": 100,
    "units": 1,
    "page": 5,
-   "x": 62.714,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 22.478,
+    "limit_left": 3.722,
+    "ink_left": 5.636,
+    "ink_right": 20.878
+   }
   },
   {
    "char": "ل",
@@ -1551,12 +2156,18 @@
    "id": 101,
    "units": 1,
    "page": 5,
-   "x": 33.857,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 21.289,
+    "limit_left": 5.225,
+    "ink_left": 6.978,
+    "ink_right": 19.536
+   }
   },
   {
    "char": "ل",
@@ -1567,11 +2178,17 @@
    "units": 1,
    "page": 5,
    "x": 5.0,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 16.258,
+    "wall_left": 9.871,
+    "ink_left": 11.471,
+    "ink_right": 15.043
+   }
   },
   {
    "char": "ل",
@@ -1581,12 +2198,18 @@
    "id": 103,
    "units": 1,
    "page": 5,
-   "x": 178.143,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 17.947,
+    "wall_left": 8.567,
+    "ink_left": 10.167,
+    "ink_right": 16.347
+   }
   },
   {
    "char": "ل",
@@ -1596,12 +2219,18 @@
    "id": 104,
    "units": 1,
    "page": 5,
-   "x": 149.286,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 22.478,
+    "limit_left": 3.722,
+    "ink_left": 5.636,
+    "ink_right": 20.878
+   }
   },
   {
    "char": "م",
@@ -1611,12 +2240,18 @@
    "id": 105,
    "units": 2,
    "page": 5,
-   "x": 91.571,
-   "y": 83.25,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 82.625,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 38.356,
+    "limit_left": 17.073,
+    "ink_left": 19.106,
+    "ink_right": 36.323
+   }
   },
   {
    "char": "م",
@@ -1626,12 +2261,18 @@
    "id": 106,
    "units": 1,
    "page": 5,
-   "x": 62.714,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 18.124,
+    "wall_left": 8.205,
+    "ink_left": 9.805,
+    "ink_right": 16.709
+   }
   },
   {
    "char": "م",
@@ -1641,12 +2282,18 @@
    "id": 107,
    "units": 1,
    "page": 5,
-   "x": 33.857,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 19.952,
+    "wall_left": 6.562,
+    "ink_left": 8.162,
+    "ink_right": 18.352
+   }
   },
   {
    "char": "م",
@@ -1656,12 +2303,18 @@
    "id": 108,
    "units": 2,
    "page": 5,
-   "x": 149.286,
-   "y": 145.9,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 145.65,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 38.902,
+    "limit_left": 15.976,
+    "ink_left": 18.127,
+    "ink_right": 37.302
+   }
   },
   {
    "char": "ن",
@@ -1672,11 +2325,17 @@
    "units": 1,
    "page": 5,
    "x": 5.0,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 22.362,
+    "limit_left": 4.152,
+    "ink_left": 6.021,
+    "ink_right": 20.493
+   }
   },
   {
    "char": "ن",
@@ -1686,12 +2345,18 @@
    "id": 110,
    "units": 1,
    "page": 5,
-   "x": 120.429,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 17.448,
+    "wall_left": 8.808,
+    "ink_left": 10.408,
+    "ink_right": 16.106
+   }
   },
   {
    "char": "ن",
@@ -1701,12 +2366,18 @@
    "id": 111,
    "units": 1,
    "page": 5,
-   "x": 91.571,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 18.362,
+    "wall_left": 8.152,
+    "ink_left": 9.752,
+    "ink_right": 16.762
+   }
   },
   {
    "char": "ن",
@@ -1716,12 +2387,18 @@
    "id": 112,
    "units": 1,
    "page": 5,
-   "x": 62.714,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 23.005,
+    "limit_left": 3.131,
+    "ink_left": 5.109,
+    "ink_right": 21.405
+   }
   },
   {
    "char": "و",
@@ -1731,12 +2408,18 @@
    "id": 113,
    "units": 1,
    "page": 5,
-   "x": 33.857,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 21.796,
+    "limit_left": 4.718,
+    "ink_left": 6.526,
+    "ink_right": 19.988
+   }
   },
   {
    "char": "و",
@@ -1747,11 +2430,17 @@
    "units": 1,
    "page": 5,
    "x": 5.0,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 22.048,
+    "limit_left": 4.203,
+    "ink_left": 6.066,
+    "ink_right": 20.448
+   }
   },
   {
    "char": "ؤ",
@@ -1761,12 +2450,18 @@
    "id": 115,
    "units": 1,
    "page": 5,
-   "x": 178.143,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 21.796,
+    "limit_left": 4.718,
+    "ink_left": 6.526,
+    "ink_right": 19.988
+   }
   },
   {
    "char": "ؤ",
@@ -1776,12 +2471,18 @@
    "id": 116,
    "units": 1,
    "page": 5,
-   "x": 149.286,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 22.048,
+    "limit_left": 4.203,
+    "ink_left": 6.066,
+    "ink_right": 20.448
+   }
   },
   {
    "char": "ۏ",
@@ -1791,12 +2492,18 @@
    "id": 117,
    "units": 1,
    "page": 5,
-   "x": 120.429,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 21.796,
+    "limit_left": 4.718,
+    "ink_left": 6.526,
+    "ink_right": 19.988
+   }
   },
   {
    "char": "ۏ",
@@ -1806,12 +2513,18 @@
    "id": 118,
    "units": 1,
    "page": 5,
-   "x": 91.571,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 22.048,
+    "limit_left": 4.203,
+    "ink_left": 6.066,
+    "ink_right": 20.448
+   }
   },
   {
    "char": "ه",
@@ -1821,12 +2534,18 @@
    "id": 119,
    "units": 1,
    "page": 5,
-   "x": 62.714,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 16.984,
+    "limit_left": 9.53,
+    "ink_left": 10.822,
+    "ink_right": 15.692
+   }
   },
   {
    "char": "ه",
@@ -1836,12 +2555,18 @@
    "id": 120,
    "units": 1,
    "page": 5,
-   "x": 33.857,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 20.977,
+    "wall_left": 5.657,
+    "ink_left": 7.257,
+    "ink_right": 19.257
+   }
   },
   {
    "char": "ه",
@@ -1852,11 +2577,17 @@
    "units": 1,
    "page": 5,
    "x": 5.0,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 18.392,
+    "wall_left": 8.122,
+    "ink_left": 9.722,
+    "ink_right": 16.792
+   }
   },
   {
    "char": "ه",
@@ -1866,12 +2597,18 @@
    "id": 122,
    "units": 1,
    "page": 6,
-   "x": 178.143,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 20.518,
+    "limit_left": 5.917,
+    "ink_left": 7.596,
+    "ink_right": 18.918
+   }
   },
   {
    "char": "ي",
@@ -1881,12 +2618,18 @@
    "id": 123,
    "units": 1,
    "page": 6,
-   "x": 149.286,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 21.576,
+    "limit_left": 4.938,
+    "ink_left": 6.722,
+    "ink_right": 19.792
+   }
   },
   {
    "char": "ي",
@@ -1896,12 +2639,18 @@
    "id": 124,
    "units": 1,
    "page": 6,
-   "x": 120.429,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 17.448,
+    "wall_left": 8.808,
+    "ink_left": 10.408,
+    "ink_right": 16.106
+   }
   },
   {
    "char": "ي",
@@ -1911,12 +2660,18 @@
    "id": 125,
    "units": 1,
    "page": 6,
-   "x": 91.571,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 18.362,
+    "wall_left": 8.152,
+    "ink_left": 9.752,
+    "ink_right": 16.762
+   }
   },
   {
    "char": "ي",
@@ -1926,12 +2681,18 @@
    "id": 126,
    "units": 1,
    "page": 6,
-   "x": 62.714,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 21.792,
+    "limit_left": 4.49,
+    "ink_left": 6.322,
+    "ink_right": 20.192
+   }
   },
   {
    "char": "ئ",
@@ -1941,12 +2702,18 @@
    "id": 127,
    "units": 1,
    "page": 6,
-   "x": 33.857,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 21.576,
+    "limit_left": 4.938,
+    "ink_left": 6.722,
+    "ink_right": 19.792
+   }
   },
   {
    "char": "ئ",
@@ -1957,11 +2724,17 @@
    "units": 1,
    "page": 6,
    "x": 5.0,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 17.448,
+    "wall_left": 8.808,
+    "ink_left": 10.408,
+    "ink_right": 16.106
+   }
   },
   {
    "char": "ئ",
@@ -1971,12 +2744,18 @@
    "id": 129,
    "units": 1,
    "page": 6,
-   "x": 178.143,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 18.362,
+    "wall_left": 8.152,
+    "ink_left": 9.752,
+    "ink_right": 16.762
+   }
   },
   {
    "char": "ئ",
@@ -1986,12 +2765,18 @@
    "id": 130,
    "units": 1,
    "page": 6,
-   "x": 149.286,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 21.89,
+    "limit_left": 4.38,
+    "ink_left": 6.224,
+    "ink_right": 20.29
+   }
   },
   {
    "char": "ڽ",
@@ -2001,12 +2786,18 @@
    "id": 131,
    "units": 1,
    "page": 6,
-   "x": 120.429,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 22.362,
+    "limit_left": 4.152,
+    "ink_left": 6.021,
+    "ink_right": 20.493
+   }
   },
   {
    "char": "ڽ",
@@ -2016,12 +2807,18 @@
    "id": 132,
    "units": 1,
    "page": 6,
-   "x": 91.571,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "limit_right": 17.448,
+    "wall_left": 8.808,
+    "ink_left": 10.408,
+    "ink_right": 16.106
+   }
   },
   {
    "char": "ڽ",
@@ -2031,12 +2828,18 @@
    "id": 133,
    "units": 1,
    "page": 6,
-   "x": 62.714,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_right": 18.362,
+    "wall_left": 8.152,
+    "ink_left": 9.752,
+    "ink_right": 16.762
+   }
   },
   {
    "char": "ڽ",
@@ -2046,12 +2849,18 @@
    "id": 134,
    "units": 1,
    "page": 6,
-   "x": 33.857,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 23.005,
+    "limit_left": 3.131,
+    "ink_left": 5.109,
+    "ink_right": 21.405
+   }
   },
   {
    "char": "ء",
@@ -2062,11 +2871,17 @@
    "units": 1,
    "page": 6,
    "x": 5.0,
-   "y": 83.25,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 82.625,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 16.351,
+    "limit_left": 10.163,
+    "ink_left": 11.388,
+    "ink_right": 15.126
+   }
   },
   {
    "char": "لا",
@@ -2076,12 +2891,18 @@
    "id": 136,
    "units": 2,
    "page": 6,
-   "x": 149.286,
-   "y": 145.9,
-   "w": 55.714,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 145.65,
+   "w": 55.429,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 38.634,
+    "limit_left": 16.795,
+    "ink_left": 18.858,
+    "ink_right": 36.571
+   }
   },
   {
    "char": "لا",
@@ -2091,12 +2912,18 @@
    "id": 137,
    "units": 1,
    "page": 6,
-   "x": 120.429,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "wall_right": 21.882,
+    "limit_left": 4.389,
+    "ink_left": 6.232,
+    "ink_right": 20.282
+   }
   },
   {
    "char": "ـ",
@@ -2106,12 +2933,16 @@
    "id": 138,
    "units": 1,
    "page": 6,
-   "x": 91.571,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": true,
-   "join_left": true
+   "join_left": true,
+   "guide": {
+    "wall_left": 3.2,
+    "wall_right": 23.314
+   }
   },
   {
    "char": "،",
@@ -2121,12 +2952,18 @@
    "id": 139,
    "units": 1,
    "page": 6,
-   "x": 62.714,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 16.055,
+    "limit_left": 10.459,
+    "ink_left": 11.651,
+    "ink_right": 14.863
+   }
   },
   {
    "char": "؛",
@@ -2136,12 +2973,18 @@
    "id": 140,
    "units": 1,
    "page": 6,
-   "x": 33.857,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 16.064,
+    "limit_left": 10.45,
+    "ink_left": 11.644,
+    "ink_right": 14.87
+   }
   },
   {
    "char": "؟",
@@ -2152,11 +2995,17 @@
    "units": 1,
    "page": 6,
    "x": 5.0,
-   "y": 145.9,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 145.65,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 20.758,
+    "limit_left": 5.756,
+    "ink_left": 7.453,
+    "ink_right": 19.061
+   }
   },
   {
    "char": "٠",
@@ -2166,12 +3015,18 @@
    "id": 142,
    "units": 1,
    "page": 6,
-   "x": 178.143,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 19.061,
+    "limit_left": 7.453,
+    "ink_left": 8.968,
+    "ink_right": 17.546
+   }
   },
   {
    "char": "١",
@@ -2181,12 +3036,18 @@
    "id": 143,
    "units": 1,
    "page": 6,
-   "x": 149.286,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 17.406,
+    "limit_left": 9.108,
+    "ink_left": 10.445,
+    "ink_right": 16.069
+   }
   },
   {
    "char": "٢",
@@ -2196,12 +3057,18 @@
    "id": 144,
    "units": 1,
    "page": 6,
-   "x": 120.429,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 19.086,
+    "limit_left": 7.428,
+    "ink_left": 8.945,
+    "ink_right": 17.569
+   }
   },
   {
    "char": "٣",
@@ -2211,12 +3078,18 @@
    "id": 145,
    "units": 1,
    "page": 6,
-   "x": 91.571,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 91.743,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 19.17,
+    "limit_left": 7.344,
+    "ink_left": 8.87,
+    "ink_right": 17.644
+   }
   },
   {
    "char": "٤",
@@ -2226,12 +3099,18 @@
    "id": 146,
    "units": 1,
    "page": 6,
-   "x": 62.714,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 62.829,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 19.255,
+    "limit_left": 7.259,
+    "ink_left": 8.795,
+    "ink_right": 17.719
+   }
   },
   {
    "char": "٥",
@@ -2241,12 +3120,18 @@
    "id": 147,
    "units": 1,
    "page": 6,
-   "x": 33.857,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 33.914,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 19.196,
+    "limit_left": 7.318,
+    "ink_left": 8.847,
+    "ink_right": 17.667
+   }
   },
   {
    "char": "٦",
@@ -2257,11 +3142,17 @@
    "units": 1,
    "page": 6,
    "x": 5.0,
-   "y": 208.55,
-   "w": 26.857,
-   "h": 60.15,
+   "y": 208.675,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 19.01,
+    "limit_left": 7.504,
+    "ink_left": 9.013,
+    "ink_right": 17.501
+   }
   },
   {
    "char": "٧",
@@ -2271,12 +3162,18 @@
    "id": 149,
    "units": 1,
    "page": 7,
-   "x": 178.143,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 178.486,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 19.516,
+    "limit_left": 6.998,
+    "ink_left": 8.561,
+    "ink_right": 17.953
+   }
   },
   {
    "char": "٨",
@@ -2286,12 +3183,18 @@
    "id": 150,
    "units": 1,
    "page": 7,
-   "x": 149.286,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 149.571,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 19.196,
+    "limit_left": 7.318,
+    "ink_left": 8.847,
+    "ink_right": 17.667
+   }
   },
   {
    "char": "٩",
@@ -2301,12 +3204,18 @@
    "id": 151,
    "units": 1,
    "page": 7,
-   "x": 120.429,
-   "y": 20.6,
-   "w": 26.857,
-   "h": 60.15,
+   "x": 120.657,
+   "y": 19.6,
+   "w": 26.514,
+   "h": 60.025,
    "join_right": false,
-   "join_left": false
+   "join_left": false,
+   "guide": {
+    "limit_right": 19.052,
+    "limit_left": 7.462,
+    "ink_left": 8.976,
+    "ink_right": 17.538
+   }
   }
  ]
 }
