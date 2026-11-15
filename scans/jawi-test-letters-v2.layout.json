@@ -1,0 +1,332 @@
+{
+ "note": "Scanned pages are numbered 1..pages. All positions are millimetres on A4. Cell guide y values are from the cell top; each cell's `guide` x values are from the cell's left edge: `wall_*` is where a joining stroke must stop, `limit_*` the edge of a non-joining side.",
+ "version": 2,
+ "style": "thuluth",
+ "nib_mm": 3.0,
+ "alif_dots": 9,
+ "printer": "Canon PIXMA E470",
+ "page_mm": [
+  210,
+  297
+ ],
+ "safe_area_mm": {
+  "left": 5.0,
+  "right": 205.0,
+  "top": 4.6,
+  "bottom": 278.7
+ },
+ "mark_shape": "plus",
+ "mark_size_mm": [
+  8.0,
+  8.0
+ ],
+ "mark_centres_mm": [
+  [
+   9.0,
+   8.6
+  ],
+  [
+   201.0,
+   8.6
+  ],
+  [
+   9.0,
+   274.7
+  ],
+  [
+   201.0,
+   274.7
+  ]
+ ],
+ "cell_guides_mm": {
+  "label_band": 6.5,
+  "ascender": 13.76,
+  "middle": 28.76,
+  "baseline": 40.76,
+  "descender": 53.74,
+  "kashida": 2.487
+ },
+ "sentence": "ساي سوك منوليس جاوي",
+ "rumi": "saya suka menulis jawi",
+ "words": [
+  [
+   1,
+   2,
+   3
+  ],
+  [
+   1,
+   4,
+   5
+  ],
+  [
+   6,
+   7,
+   4,
+   8,
+   9,
+   10
+  ],
+  [
+   11,
+   2,
+   12,
+   3
+  ]
+ ],
+ "pages": 1,
+ "cells": [
+  {
+   "char": "س",
+   "name": "sin",
+   "form": "init",
+   "optional": false,
+   "id": 1,
+   "units": 1,
+   "page": 1,
+   "x": 166.92,
+   "y": 19.6,
+   "w": 38.08,
+   "h": 60.025,
+   "join_right": false,
+   "join_left": true,
+   "guide": {
+    "limit_right": 30.506,
+    "wall_left": 7.742,
+    "ink_left": 10.142,
+    "ink_right": 27.938
+   }
+  },
+  {
+   "char": "ا",
+   "name": "alif",
+   "form": "fina",
+   "optional": false,
+   "id": 2,
+   "units": 1,
+   "page": 1,
+   "x": 126.44,
+   "y": 19.6,
+   "w": 38.08,
+   "h": 60.025,
+   "join_right": true,
+   "join_left": false,
+   "guide": {
+    "wall_right": 26.064,
+    "limit_left": 12.361,
+    "ink_left": 14.416,
+    "ink_right": 23.664
+   }
+  },
+  {
+   "char": "ي",
+   "name": "ya",
+   "form": "isol",
+   "optional": false,
+   "id": 3,
+   "units": 1,
+   "page": 1,
+   "x": 85.96,
+   "y": 19.6,
+   "w": 38.08,
+   "h": 60.025,
+   "join_right": false,
+   "join_left": false,
+   "guide": {
+    "limit_right": 31.519,
+    "limit_left": 6.561,
+    "ink_left": 9.237,
+    "ink_right": 28.843
+   }
+  },
+  {
+   "char": "و",
+   "name": "wau",
+   "form": "fina",
+   "optional": false,
+   "id": 4,
+   "units": 1,
+   "page": 1,
+   "x": 45.48,
+   "y": 19.6,
+   "w": 38.08,
+   "h": 60.025,
+   "join_right": true,
+   "join_left": false,
+   "guide": {
+    "wall_right": 32.226,
+    "limit_left": 5.459,
+    "ink_left": 8.254,
+    "ink_right": 29.826
+   }
+  },
+  {
+   "char": "ك",
+   "name": "kaf",
+   "form": "isol",
+   "optional": false,
+   "id": 5,
+   "units": 1,
+   "page": 1,
+   "x": 5.0,
+   "y": 19.6,
+   "w": 38.08,
+   "h": 60.025,
+   "join_right": false,
+   "join_left": false,
+   "guide": {
+    "limit_right": 31.089,
+    "limit_left": 6.991,
+    "ink_left": 9.622,
+    "ink_right": 28.458
+   }
+  },
+  {
+   "char": "م",
+   "name": "mim",
+   "form": "init",
+   "optional": false,
+   "id": 6,
+   "units": 1,
+   "page": 1,
+   "x": 166.92,
+   "y": 82.625,
+   "w": 38.08,
+   "h": 60.025,
+   "join_right": false,
+   "join_left": true,
+   "guide": {
+    "limit_right": 26.34,
+    "wall_left": 11.462,
+    "ink_left": 13.862,
+    "ink_right": 24.218
+   }
+  },
+  {
+   "char": "ن",
+   "name": "nun",
+   "form": "medi",
+   "optional": false,
+   "id": 7,
+   "units": 1,
+   "page": 1,
+   "x": 126.44,
+   "y": 82.625,
+   "w": 38.08,
+   "h": 60.025,
+   "join_right": true,
+   "join_left": true,
+   "guide": {
+    "wall_right": 26.698,
+    "wall_left": 11.382,
+    "ink_left": 13.782,
+    "ink_right": 24.298
+   }
+  },
+  {
+   "char": "ل",
+   "name": "lam",
+   "form": "init",
+   "optional": false,
+   "id": 8,
+   "units": 1,
+   "page": 1,
+   "x": 85.96,
+   "y": 82.625,
+   "w": 38.08,
+   "h": 60.025,
+   "join_right": false,
+   "join_left": true,
+   "guide": {
+    "limit_right": 23.541,
+    "wall_left": 13.96,
+    "ink_left": 16.36,
+    "ink_right": 21.72
+   }
+  },
+  {
+   "char": "ي",
+   "name": "ya",
+   "form": "medi",
+   "optional": false,
+   "id": 9,
+   "units": 1,
+   "page": 1,
+   "x": 45.48,
+   "y": 82.625,
+   "w": 38.08,
+   "h": 60.025,
+   "join_right": true,
+   "join_left": true,
+   "guide": {
+    "wall_right": 26.698,
+    "wall_left": 11.382,
+    "ink_left": 13.782,
+    "ink_right": 24.298
+   }
+  },
+  {
+   "char": "س",
+   "name": "sin",
+   "form": "fina",
+   "optional": false,
+   "id": 10,
+   "units": 2,
+   "page": 1,
+   "x": 126.44,
+   "y": 145.65,
+   "w": 78.56,
+   "h": 60.025,
+   "join_right": true,
+   "join_left": false,
+   "guide": {
+    "wall_right": 57.961,
+    "limit_left": 19.545,
+    "ink_left": 22.999,
+    "ink_right": 55.561
+   }
+  },
+  {
+   "char": "ج",
+   "name": "jim",
+   "form": "init",
+   "optional": false,
+   "id": 11,
+   "units": 1,
+   "page": 1,
+   "x": 5.0,
+   "y": 82.625,
+   "w": 38.08,
+   "h": 60.025,
+   "join_right": false,
+   "join_left": true,
+   "guide": {
+    "limit_right": 30.899,
+    "wall_left": 7.391,
+    "ink_left": 9.791,
+    "ink_right": 28.289
+   }
+  },
+  {
+   "char": "و",
+   "name": "wau",
+   "form": "isol",
+   "optional": false,
+   "id": 12,
+   "units": 1,
+   "page": 1,
+   "x": 85.96,
+   "y": 145.65,
+   "w": 38.08,
+   "h": 60.025,
+   "join_right": false,
+   "join_left": false,
+   "guide": {
+    "limit_right": 31.848,
+    "limit_left": 6.232,
+    "ink_left": 8.943,
+    "ink_right": 29.137
+   }
+  }
+ ]
+}

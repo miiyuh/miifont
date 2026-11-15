@@ -124,11 +124,11 @@ Two one-page Thuluth sheets for a **3.0 mm** nib (alif 9 dots, 27 mm), built aro
 
 ### jawi test font
 
-[`fonts/jawi-test/miifont-JawiTest.ttf`](fonts/jawi-test/miifont-JawiTest.ttf) (**miifont Jawi Test**) is built from a filled letter sheet ([`scans/jawi-test-letters.jpg`](scans/jawi-test-letters.jpg), printed from the first version of the sheet, whose layout is kept next to it). It has the 12 letter forms of ساي سوك منوليس جاوي and picks the right form automatically, so the sentence (and other words made only of those forms) types in your handwriting. The letters are traced as filled outlines to keep the broad-nib thick and thin strokes.
+[`fonts/jawi-test/miifont-JawiTest.ttf`](fonts/jawi-test/miifont-JawiTest.ttf) (**miifont Jawi Test**) is built from the filled letter sheet in [`scans/jawi-test-letters-v2.jpg`](scans/jawi-test-letters-v2.jpg). Each scan in `scans/` keeps the layout of the sheet it was printed on next to it, so the first one ([`jawi-test-letters.jpg`](scans/jawi-test-letters.jpg), from the older sheet) still builds too. It has the 12 letter forms of ساي سوك منوليس جاوي and picks the right form automatically, so the sentence (and other words made only of those forms) types in your handwriting. The letters are traced as filled outlines to keep the broad-nib thick and thin strokes.
 
 ![jawi test preview](fonts/jawi-test/preview.png)
 
-`scripts/jawi_test_font.py [scan.jpg [layout.json [out_dir]]]` rebuilds it. With no arguments it uses the scan above.
+`scripts/jawi_test_font.py [scan.jpg [layout.json [out_dir]]]` rebuilds it. With no arguments it uses the v2 scan. The preview puts the font next to everything written freehand on the sheet.
 
 ## known limitations
 

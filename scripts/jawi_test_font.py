@@ -1,8 +1,8 @@
 """Build the "miifont Jawi Test" font from the filled Thuluth letter test sheet.
 
 Usage: jawi_test_font.py [scan.jpg [layout.json [out_dir]]]. By default it reads
-scans/jawi-test-letters.jpg and the layout saved next to it
-(scans/jawi-test-letters.layout.json, from the sheet that scan was printed from).
+scans/jawi-test-letters-v2.jpg and the layout saved next to it
+(scans/jawi-test-letters-v2.layout.json, from the sheet that scan was printed from).
 It lines the scan up on its corner marks, cuts out each cell, keeps only the
 black ink and traces it as a filled outline (keeping the broad-nib thick/thin
 contrast). Joined sides are cut where the template says the joining stroke
@@ -25,7 +25,7 @@ from fontTools.pens.cu2quPen import Cu2QuPen
 from fontTools.pens.ttGlyphPen import TTGlyphPen
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SCAN = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else os.path.join(ROOT, "scans", "jawi-test-letters.jpg")
+SCAN = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else os.path.join(ROOT, "scans", "jawi-test-letters-v2.jpg")
 LAYOUT = os.path.abspath(sys.argv[2]) if len(sys.argv) > 2 else os.path.splitext(SCAN)[0] + ".layout.json"
 OUT = os.path.abspath(sys.argv[3]) if len(sys.argv) > 3 else os.path.join(ROOT, "fonts", "jawi-test")
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
@@ -209,20 +209,28 @@ def main():
 
 
 def preview(lay, page, font_path):
-    """PNG: the sentence set in the font, next to the freehand word written under the grid."""
+    """PNG: the sentence set in the font, next to whatever was written freehand on
+    the sheet (all ink outside the cells, the header and the corner marks)."""
     cells = lay["cells"]
-    y = max(c["y"] + c["h"] for c in cells) + 22                 # below the printed sentence
-    mark = max(lay["mark_size_mm"]) if "mark_size_mm" in lay else lay["square_mm"]
-    crop = page[int(y * PX):int((lay["safe_area_mm"]["bottom"] - mark - 1) * PX),
-                int(lay["safe_area_mm"]["left"] * PX):int(lay["safe_area_mm"]["right"] * PX)]
-    m = ink(crop)
+    m = ink(page)
+    m[:int((min(c["y"] for c in cells) - 1) * PX)] = False                    # header
+    for c in cells:
+        m[int((c["y"] - 1) * PX):int((c["y"] + c["h"] + 1) * PX),
+          int((c["x"] - 1) * PX):int((c["x"] + c["w"] + 1) * PX)] = False
+    if "mark_size_mm" in lay:
+        half, centres = max(lay["mark_size_mm"]) / 2 + 1.5, lay["mark_centres_mm"]
+    else:
+        half, centres = lay["square_mm"] / 2 + 1.5, lay["square_centres_mm"]
+    for cx, cy in centres:
+        m[max(0, int((cy - half) * PX)):int((cy + half) * PX), max(0, int((cx - half) * PX)):int((cx + half) * PX)] = False
     ys, xs = np.nonzero(m)
-    freehand = None
+    freehand, crop = None, page[:0]
     if len(xs):
         pad = 2 * PX
-        crop = crop[max(0, ys.min() - pad):ys.max() + pad, max(0, xs.min() - pad):xs.max() + pad]
+        y0, x0 = max(0, ys.min() - pad), max(0, xs.min() - pad)
+        crop = m[y0:ys.max() + pad, x0:xs.max() + pad]
         freehand = os.path.join(OUT, "freehand.png")
-        cv2.imwrite(freehand, np.where(ink(crop)[..., None], 0, 255).astype(np.uint8).repeat(3, 2))
+        cv2.imwrite(freehand, np.where(crop[..., None], 0, 255).astype(np.uint8).repeat(3, 2))
     words = lay["sentence"].split()
     # Render from a renamed copy: Windows caches glyphs by font name, so a rebuilt
     # font with the same name can still render with the old outlines.
@@ -257,10 +265,16 @@ body{{margin:0;padding:40px 56px;background:#fff;font-family:Segoe UI,sans-serif
     png = os.path.join(OUT, "preview.png")
     with tempfile.TemporaryDirectory() as profile:
         subprocess.run([CHROME, "--headless=new", "--disable-gpu", f"--user-data-dir={profile}",
-                        "--hide-scrollbars", f"--screenshot={png}", "--window-size=1212,760",
+                        "--hide-scrollbars", f"--screenshot={png}", f"--window-size=1212,{760 + int(crop.shape[0] / PX * 3.2)}",
                         "--force-device-scale-factor=2",
                         "--allow-file-access-from-files", "file:///" + tmp.replace("\\", "/")],
                        check=True, capture_output=True, timeout=120)
+    # trim the empty space under the last line
+    from PIL import Image
+    im = Image.open(png).convert("RGB")
+    rows = np.nonzero((np.asarray(im).min(axis=(1, 2)) < 250))[0]
+    if len(rows):
+        im.crop((0, 0, im.width, min(im.height, rows.max() + 80))).save(png)
     print("preview ->", png)
 
 
