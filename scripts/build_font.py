@@ -21,7 +21,7 @@ from fontTools.ttLib import TTFont
 
 
 from common import (CAP, FAMILY, FONTS, ITALIC_ANGLE, S, SIDE, UPM, VERSION,
-                    WEIGHTS, glyphs, meta, trace)
+                    WEIGHTS, finish_os2, glyphs, meta, trace)
 
 
 def outline(g, stroke_units):
@@ -127,6 +127,7 @@ def save(weight_class, weight_name, stroke, italic, recs, widths, order, cmap):
         for gname in order:
             bp = BoundsPen(gs); gs[gname].draw(bp)
             f["hmtx"][gname] = (widths[gname], round(bp.bounds[0]) if bp.bounds else 0)
+        finish_os2(f)
         f.save(path)
         if not otf:
             os.makedirs(os.path.join(FONTS, "woff2"), exist_ok=True)

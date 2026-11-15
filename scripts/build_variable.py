@@ -20,7 +20,8 @@ from fontTools.pens.ttGlyphPen import TTGlyphPen
 from fontTools.ttLib import TTFont
 from fontTools import varLib
 
-from common import CAP, FAMILY, FONTS, ITALIC_ANGLE, S, SIDE, UPM, VERSION, WEIGHTS, glyphs, meta
+from common import (CAP, FAMILY, FONTS, ITALIC_ANGLE, S, SIDE, UPM, VERSION, WEIGHTS, finish_os2,
+                    glyphs, meta)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUILD = os.path.join(ROOT, "build", "variable")
@@ -247,6 +248,7 @@ def build(italic):
         inst.postScriptFontName = f"{FAMILY}-{style.replace(' ', '')}"
         ds.addInstance(inst)
     vf, _, _ = varLib.build(ds)
+    finish_os2(vf)
     # Capsules overlap on purpose; tell rasterisers.
     for gname in vf.getGlyphOrder():
         g = vf["glyf"][gname]

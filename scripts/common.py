@@ -92,3 +92,16 @@ S = CAP / cap_px  # font units per upscaled pixel
 regular_w = round(float(np.median(widths_px)) * S)
 print(f"scale {S:.2f} units/px, measured Regular stroke {regular_w} units")
 WEIGHTS = [(c, n, round(regular_w * k)) for c, n, k in WEIGHTS]
+
+
+def finish_os2(font):
+    """Fill in the OS/2 fields that Microsoft Office relies on.
+
+    Word checks ulCodePageRange to decide which scripts a font supports; when
+    it's empty, Word silently substitutes a fallback font even though the font
+    name shows. fsType 0 = installable, so documents can embed the font.
+    """
+    os2 = font["OS/2"]
+    os2.recalcUnicodeRanges(font)
+    os2.recalcCodePageRanges(font)
+    os2.fsType = 0
