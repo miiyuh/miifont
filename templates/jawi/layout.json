@@ -1,5 +1,5 @@
 {
- "note": "Scanned pages are numbered 1..pages (the instructions sheet is not scanned). All positions are millimetres on A4; cell guides are relative to the cell top.",
+ "note": "Scanned pages are numbered 1..pages (the instructions sheet is not scanned). All positions are millimetres on A4; cell guides are relative to the cell top. Both guide styles (naskh, thuluth) share this layout.",
  "page_mm": [
   210,
   297

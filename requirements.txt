@@ -4,3 +4,4 @@ pillow
 fonttools
 potracer
 brotli
+uharfbuzz

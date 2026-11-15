@@ -91,13 +91,22 @@ To change a letter, redraw it on the template, replace the scan in `scans/` and 
 
 ## jawi (coming soon)
 
-[`templates/jawi/miifont-jawi-template.pdf`](templates/jawi/miifont-jawi-template.pdf) is a printable template for adding Jawi. It has an instructions page plus 5 pages with 151 cells:
+Printable templates for adding Jawi, in two guide styles:
+
+- **Naskh:** [`templates/jawi/naskh/miifont-jawi-naskh.pdf`](templates/jawi/naskh/miifont-jawi-naskh.pdf)
+- **Thuluth:** [`templates/jawi/thuluth/miifont-jawi-thuluth.pdf`](templates/jawi/thuluth/miifont-jawi-thuluth.pdf)
+
+Each has an instructions page plus 5 pages with 151 cells:
 
 - all 28 Arabic letters, the Jawi letters چ ڠ ڤ ݢ ڽ ۏ, ة, the hamzah forms (أ إ ؤ ئ ء) and لا
 - every letter in each contextual shape it takes: tunggal, awal, tengah, akhir
 - tatwil and Arabic punctuation (، ؛ ؟), plus optional Arabic digits
 
-Sides that join a neighbouring letter have a tick on the baseline. The joining stroke runs right up to it, so the letters connect cleanly once typed. Shapes with long tails get double-width cells. `scripts/jawi_template.py` generates the PDF and `layout.json`, which records where every cell is so the scans can be cut up.
+Every cell has a faint guide letter to trace or follow. It's printed light enough to be dropped automatically when the scan is processed, so only your own ink ends up in the font. Sides that join a neighbouring letter have a tick on the baseline, and the joining stroke runs right up to it so the letters connect cleanly once typed. Shapes with long tails get double-width cells.
+
+Layla Thuluth has no ڠ ݢ ڽ ۏ, so in the Thuluth template those cells show the base letter (ع ك ن و) with a note on which dots to add.
+
+Both styles share one layout. `scripts/jawi_template.py` generates the PDFs and `templates/jawi/layout.json`, which records where every cell is so the scans can be cut up. The guide fonts are in [`templates/jawi/fonts`](templates/jawi/fonts) (both OFL).
 
 ## known limitations
 
