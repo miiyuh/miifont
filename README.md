@@ -109,6 +109,8 @@ Every cell has a faint guide letter to trace or follow. It's printed light enoug
 
 There's also a one-page Thuluth test sheet, [`templates/jawi/test/miifont-jawi-test-thuluth.pdf`](templates/jawi/test/miifont-jawi-test-thuluth.pdf), sized for a **3.0 mm** nib (alif 9 dots, 27 mm). It has the sentence ساي سوك منوليس جاوي (*saya suka menulis jawi*) over two lines. Each line has a row to trace and a row to write freehand. `scripts/jawi_test.py` builds it; change `NIB`, `SENTENCE` or `LINES` there.
 
+A second test sheet, [`templates/jawi/test/miifont-jawi-test-letters-thuluth.pdf`](templates/jawi/test/miifont-jawi-test-letters-thuluth.pdf), has just the 12 letter forms that sentence needs, one per cell like the full template, also for a 3.0 mm nib. Its `layout-letters.json` lists which cells spell each word, so the scanned letters can be joined back into the sentence. `scripts/jawi_test_letters.py` builds it.
+
 Layla Thuluth has no ڠ ݢ ڽ ۏ, so in the Thuluth template those cells show the base letter (ع ك ن و) with a note on which dots to add.
 
 `scripts/jawi_template.py` generates the PDFs and a `layout.json` for each style, which records where every cell is so the scans can be cut up. The guide fonts are in [`templates/jawi/fonts`](templates/jawi/fonts) (both OFL).
