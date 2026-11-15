@@ -20,8 +20,8 @@ from fontTools.pens.ttGlyphPen import TTGlyphPen
 from fontTools.ttLib import TTFont
 
 
-from common import (CAP, FAMILY, FONTS, ITALIC_ANGLE, S, SIDE, UPM, VERSION,
-                    WEIGHTS, finish_os2, glyphs, meta, trace)
+from common import (ASC, CAP, DESC, FAMILY, FONTS, ITALIC_ANGLE, S, SIDE, UPM, VERSION,
+                    WEIGHTS, finish_tables, glyphs, meta, trace)
 
 
 def outline(g, stroke_units):
@@ -60,7 +60,7 @@ def save(weight_class, weight_name, stroke, italic, recs, widths, order, cmap):
     family = FAMILY if ribbi else f"{FAMILY} {weight_name}"
     subfamily = style if ribbi else ("Italic" if italic else "Regular")
     slant = math.tan(math.radians(ITALIC_ANGLE)) if italic else 0.0
-    asc, desc = 900 + stroke // 2, -280 - stroke // 2
+    asc, desc = ASC, DESC
 
     for otf in (True, False):
         fb = FontBuilder(UPM, isTTF=not otf)
@@ -110,9 +110,9 @@ def save(weight_class, weight_name, stroke, italic, recs, widths, order, cmap):
             fs = 0x40  # REGULAR: upright and not Bold
         fs |= 0x80  # USE_TYPO_METRICS
         fb.setupOS2(version=4, usWeightClass=weight_class, fsSelection=fs,
-                    sTypoAscender=asc, sTypoDescender=desc, sTypoLineGap=100,
-                    usWinAscent=asc + 60, usWinDescent=-desc + 60,
-                    sxHeight=480, sCapHeight=CAP, achVendID="MIIF")
+                    sTypoAscender=asc, sTypoDescender=desc, sTypoLineGap=0,
+                    usWinAscent=asc, usWinDescent=-desc,
+                    sxHeight=0, sCapHeight=CAP, achVendID="MIIF")
         fb.setupPost(italicAngle=-ITALIC_ANGLE if italic else 0)
         fb.font["head"].macStyle = (0x01 if weight_name == "Bold" else 0) | (0x02 if italic else 0)
 
@@ -127,8 +127,14 @@ def save(weight_class, weight_name, stroke, italic, recs, widths, order, cmap):
         for gname in order:
             bp = BoundsPen(gs); gs[gname].draw(bp)
             f["hmtx"][gname] = (widths[gname], round(bp.bounds[0]) if bp.bounds else 0)
-        finish_os2(f)
+        finish_tables(f)
         f.save(path)
+        if not otf:
+            # Hint for crisp text at small sizes on Windows; keep its gasp
+            # (smoothing at every size).
+            import ttfautohint
+            ttfautohint.ttfautohint(in_file=path, out_file=path, no_info=True,
+                                    hinting_range_max=72, increase_x_height=0)
         if not otf:
             os.makedirs(os.path.join(FONTS, "woff2"), exist_ok=True)
             f = TTFont(path); f.flavor = "woff2"

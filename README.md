@@ -46,7 +46,8 @@ Covers A–Z, a–z, 0–9 and `! ? . , ; : ' " ( ) - & @ # $ % € £ ¥ * + ×
 
 ## install
 
-- **desktop:** grab the files from [`fonts/otf`](fonts/otf) (or [`fonts/ttf`](fonts/ttf) for older apps) and install them.
+- **windows / word:** install the files from [`fonts/ttf`](fonts/ttf). They're hinted, so text stays crisp at small sizes and in font menus.
+- **mac / design apps:** [`fonts/otf`](fonts/otf) works too.
 - **web:** use [`fonts/woff2`](fonts/woff2):
 
 ```css

@@ -20,7 +20,7 @@ from fontTools.pens.ttGlyphPen import TTGlyphPen
 from fontTools.ttLib import TTFont
 from fontTools import varLib
 
-from common import (CAP, FAMILY, FONTS, ITALIC_ANGLE, S, SIDE, UPM, VERSION, WEIGHTS, finish_os2,
+from common import (ASC, CAP, DESC, FAMILY, FONTS, ITALIC_ANGLE, S, SIDE, UPM, VERSION, WEIGHTS, finish_tables,
                     glyphs, meta)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -208,7 +208,7 @@ def master(stroke, italic):
     fb.setupGlyf(tt)
     gl = fb.font["glyf"]
     fb.setupHorizontalMetrics({n: (widths[n], getattr(gl[n], "xMin", 0)) for n in order})
-    asc, desc = 900 + W_MAX // 2, -280 - W_MAX // 2
+    asc, desc = ASC, DESC
     fb.setupHorizontalHeader(ascent=asc, descent=desc,
                              caretSlopeRise=1000 if italic else 1,
                              caretSlopeRun=round(1000 * slant) if italic else 0)
@@ -218,9 +218,9 @@ def master(stroke, italic):
                        "fullName": f"{VFAMILY} {style}", "psName": f"{VPS}-{style}",
                        "version": f"Version {VERSION}"})
     fb.setupOS2(version=4, usWeightClass=400, fsSelection=(0x01 if italic else 0x40) | 0x80,
-                sTypoAscender=asc, sTypoDescender=desc, sTypoLineGap=100,
-                usWinAscent=asc + 60, usWinDescent=-desc + 60,
-                sxHeight=480, sCapHeight=CAP, achVendID="MIIF")
+                sTypoAscender=asc, sTypoDescender=desc, sTypoLineGap=0,
+                usWinAscent=asc, usWinDescent=-desc,
+                sxHeight=0, sCapHeight=CAP, achVendID="MIIF")
     fb.setupPost(italicAngle=-ITALIC_ANGLE if italic else 0)
     fb.font["head"].macStyle = 0x02 if italic else 0
     return fb.font
@@ -254,7 +254,9 @@ def build(italic):
         inst.postScriptFontName = f"{VPS}-{style.replace(' ', '')}"
         ds.addInstance(inst)
     vf, _, _ = varLib.build(ds)
-    finish_os2(vf)
+    # Win metrics must cover the heaviest master, not just the default.
+    heavy = TTFont(os.path.join(BUILD, f"master-{tag}-{W_MAX}.ttf"))
+    finish_tables(vf, heavy["head"].yMax, heavy["head"].yMin)
     # Capsules overlap on purpose; tell rasterisers.
     for gname in vf.getGlyphOrder():
         g = vf["glyf"][gname]

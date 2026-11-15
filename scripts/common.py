@@ -4,6 +4,7 @@ Loads the extracted cells, cleans the ink, finds each glyph's stroke
 centreline and works out the font scale and the measured pen width.
 """
 import json
+import math
 import os
 
 import cv2
@@ -11,11 +12,14 @@ import numpy as np
 import potrace
 
 FAMILY = "miifont"
-VERSION = "1.000"
+VERSION = "1.100"
 UPM = 1000
 UP = 4             # upscale factor before tracing
 SIDE = 45          # side bearing in font units
-CAP = 700          # cap height in font units
+CAP = 760          # cap height in font units
+# Line metrics shared by every style, so all weights space lines the same.
+ASC = round(CAP * 1.18)
+DESC = -round(CAP * 0.40)
 ITALIC_ANGLE = 12  # degrees
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CELLS = os.path.join(ROOT, "build", "cells")
@@ -94,14 +98,38 @@ print(f"scale {S:.2f} units/px, measured Regular stroke {regular_w} units")
 WEIGHTS = [(c, n, round(regular_w * k)) for c, n, k in WEIGHTS]
 
 
-def finish_os2(font):
-    """Fill in the OS/2 fields that Microsoft Office relies on.
+def finish_tables(font, y_max=None, y_min=None):
+    """Fill in the tables Windows and Microsoft Office rely on.
 
-    Word checks ulCodePageRange to decide which scripts a font supports; when
-    it's empty, Word silently substitutes a fallback font even though the font
-    name shows. fsType 0 = installable, so documents can embed the font.
+    - Word checks ulCodePageRange to decide which scripts a font supports;
+      when it's empty, Word silently substitutes a fallback font.
+    - fsType 0 = installable, so documents can embed the font.
+    - usWinAscent/Descent must cover every glyph or Windows clips them.
+    - gasp asks for smoothed rendering at every size (TrueType only).
+    - A placeholder DSIG makes older Windows/Office treat the file as OpenType.
     """
+    from fontTools.pens.boundsPen import BoundsPen
+    from fontTools.ttLib import newTable
+
     os2 = font["OS/2"]
     os2.recalcUnicodeRanges(font)
     os2.recalcCodePageRanges(font)
     os2.fsType = 0
+    gs = font.getGlyphSet()
+    if y_max is None:
+        tops, bottoms = [], []
+        for name in font.getGlyphOrder():
+            bp = BoundsPen(gs); gs[name].draw(bp)
+            if bp.bounds:
+                bottoms.append(bp.bounds[1]); tops.append(bp.bounds[3])
+        y_max, y_min = max(tops), min(bottoms)
+    os2.usWinAscent = max(ASC, math.ceil(y_max))
+    os2.usWinDescent = max(-DESC, math.ceil(-y_min))
+    bp = BoundsPen(gs); gs[font.getBestCmap()[ord("x")]].draw(bp)
+    os2.sxHeight = round(bp.bounds[3])
+    if "glyf" in font:
+        gasp = newTable("gasp"); gasp.gaspRange = {0xFFFF: 0x000F}
+        font["gasp"] = gasp
+    dsig = newTable("DSIG")
+    dsig.ulVersion, dsig.usFlag, dsig.usNumSigs, dsig.signatureRecords = 1, 0, 0, []
+    font["DSIG"] = dsig

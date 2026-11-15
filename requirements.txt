@@ -5,3 +5,4 @@ fonttools
 potracer
 brotli
 uharfbuzz
+ttfautohint-py
