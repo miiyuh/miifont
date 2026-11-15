@@ -1,0 +1,86 @@
+{
+ "note": "Single page; positions in mm on A4, row guides relative to the row top.",
+ "style": "thuluth",
+ "nib_mm": 3.0,
+ "alif_dots": 9,
+ "sentence": "ساي سوك منوليس جاوي",
+ "rumi": "saya suka menulis jawi",
+ "page_mm": [
+  210,
+  297
+ ],
+ "margin_mm": {
+  "top": 3.0,
+  "bottom": 16.7,
+  "left": 3.4,
+  "right": 3.4
+ },
+ "square_mm": 8,
+ "square_centres_mm": [
+  [
+   9.0,
+   8.6
+  ],
+  [
+   201.0,
+   8.6
+  ],
+  [
+   9.0,
+   274.7
+  ],
+  [
+   201.0,
+   274.7
+  ]
+ ],
+ "row_guides_mm": {
+  "label_band": 6.0,
+  "ascender": 13.87,
+  "middle": 28.87,
+  "baseline": 40.87,
+  "descender": 53.85
+ },
+ "rows": [
+  {
+   "row": 1,
+   "line": 1,
+   "text": "ساي سوك",
+   "trace": true,
+   "x": 5.0,
+   "y": 20.6,
+   "w": 200.0,
+   "h": 59.775
+  },
+  {
+   "row": 2,
+   "line": 1,
+   "text": "ساي سوك",
+   "trace": false,
+   "x": 5.0,
+   "y": 83.375,
+   "w": 200.0,
+   "h": 59.775
+  },
+  {
+   "row": 3,
+   "line": 2,
+   "text": "منوليس جاوي",
+   "trace": true,
+   "x": 5.0,
+   "y": 146.15,
+   "w": 200.0,
+   "h": 59.775
+  },
+  {
+   "row": 4,
+   "line": 2,
+   "text": "منوليس جاوي",
+   "trace": false,
+   "x": 5.0,
+   "y": 208.925,
+   "w": 200.0,
+   "h": 59.775
+  }
+ ]
+}

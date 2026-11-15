@@ -421,4 +421,5 @@ def main():
         build_style(key)
 
 
-main()
+if __name__ == "__main__":
+    main()
